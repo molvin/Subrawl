@@ -5,6 +5,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float _gravity;
     [SerializeField] private float _acceleration;
+    [SerializeField] private MinMaxFloat _accelerationFactorRange;
     [SerializeField] private float _terminalVelocity;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private float _bounceForceMultiplier;
@@ -18,7 +19,6 @@ public class PlayerMovement : MonoBehaviour
     {
         _collider = GetComponent<CircleCollider2D>();
     }
-
     private void Update()
     {        
         UpdateRotation();
@@ -34,7 +34,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _velocity += Vector2.down * _gravity * Time.deltaTime;
         float vertical = Mathf.Clamp01(Input.GetAxisRaw("Vertical"));
-        _velocity += (Vector2) transform.up * vertical * _acceleration * Time.deltaTime;
+        float acceleration = _acceleration * _accelerationFactorRange.Lerp(1 - Vector2.Dot(transform.up, _velocity.normalized));
+        _velocity += (Vector2) transform.up * vertical * acceleration * Time.deltaTime;
         _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
     }
     private void UpdateTranslation()
@@ -52,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         
         transform.position += (Vector3) _velocity * Time.deltaTime;
     }
-
     private RaycastHit2D Cast()
     {
         return Physics2D.CircleCast(transform.position, _collider.radius, _velocity.normalized, _velocity.magnitude * Time.deltaTime + SkinWidth, _collisionLayers);
