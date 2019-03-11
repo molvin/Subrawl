@@ -10,9 +10,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _terminalVelocity = 15;
     [SerializeField] private float _rotationSpeed = 250;
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
+    [SerializeField] private float _playerBounceMultiplier = 1.5f;
     [SerializeField] private LayerMask _collisionLayers = default(LayerMask);
-    [SerializeField] private int _rewiredId;
-    private Vector2 _velocity;
+    [SerializeField] private int _rewiredId = 0;
+    [SerializeField] private Vector2 _velocity;
     private CircleCollider2D _collider;    
     private const float SkinWidth = 0.03f;
     private Player _rewiredPlayer;
@@ -53,6 +54,10 @@ public class PlayerMovement : MonoBehaviour
             Vector2 bounceVelocity = preHitVelocity - _velocity;
             float force = Vector2.Dot(hit.normal, bounceVelocity) * -1f;
             _velocity += bounceDirection.normalized * force * _bounceForceMultiplier;
+            //Handle collision with other player
+            PlayerMovement otherPlayer = hit.collider.GetComponent<PlayerMovement>();
+            if (otherPlayer != null && Vector2.Dot(preHitVelocity.normalized, hit.normal) < 0.0f)
+                CollisionManager.HandlePlayerCollision(otherPlayer, preHitVelocity.normalized * Vector2.Dot(preHitVelocity, hit.normal) * -1f * _playerBounceMultiplier);
         }
         
         transform.position += (Vector3) _velocity * Time.deltaTime;
@@ -65,5 +70,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (hit.normal == Vector2.zero) return;
         transform.position = hit.centroid + hit.normal * SkinWidth;
+    }
+    public void AddVelocity(Vector2 velocity)
+    {
+        _velocity += velocity;
     }
 }

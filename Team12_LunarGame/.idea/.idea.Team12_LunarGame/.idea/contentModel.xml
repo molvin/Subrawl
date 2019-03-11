@@ -96,8 +96,10 @@
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">
+            <e p="CollisionManager.cs" t="Include" />
             <e p="Helpers.cs" t="Include" />
             <e p="PhysicsHelper.cs" t="Include" />
+            <e p="TimeManager.cs" t="Include" />
           </e>
         </e>
       </e>

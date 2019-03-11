@@ -15,5 +15,10 @@ public struct MinMaxFloat
     {
         return Mathf.Lerp(Min, Max, Mathf.Clamp01(lerpValue));
     }
-    
+}
+[System.Serializable]
+public struct Tuple<T1, T2>
+{
+    public T1 First;
+    public T2 Second;
 }
