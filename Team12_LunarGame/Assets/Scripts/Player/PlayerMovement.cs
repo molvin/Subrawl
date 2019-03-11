@@ -1,39 +1,43 @@
-﻿using UnityEngine;
+﻿using Rewired;
+using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float _gravity;
-    [SerializeField] private float _acceleration;
+    [SerializeField] private float _gravity = 8;
+    [SerializeField] private float _acceleration = 40;
     [SerializeField] private MinMaxFloat _accelerationFactorRange;
-    [SerializeField] private float _terminalVelocity;
-    [SerializeField] private float _rotationSpeed;
-    [SerializeField] private float _bounceForceMultiplier;
-    [SerializeField] private LayerMask _collisionLayers;
-
+    [SerializeField] private float _terminalVelocity = 15;
+    [SerializeField] private float _rotationSpeed = 250;
+    [SerializeField] private float _bounceForceMultiplier = 0.5f;
+    [SerializeField] private LayerMask _collisionLayers = default(LayerMask);
+    [SerializeField] private int _rewiredId;
     private Vector2 _velocity;
-    private CircleCollider2D _collider;
+    private CircleCollider2D _collider;    
     private const float SkinWidth = 0.03f;
+    private Player _rewiredPlayer;
     
     private void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
+        _rewiredPlayer = ReInput.players.GetPlayer(_rewiredId);
     }
     private void Update()
-    {        
+    {
         UpdateRotation();
         UpdateMovement();
         UpdateTranslation();
     }
     private void UpdateRotation()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        //TODO (Per): add acceleration
+        float horizontal = _rewiredPlayer.GetAxisRaw("Horizontal");
         transform.Rotate(-transform.forward, horizontal * _rotationSpeed * Time.deltaTime);
     }
     private void UpdateMovement()
     {
         _velocity += Vector2.down * _gravity * Time.deltaTime;
-        float vertical = Mathf.Clamp01(Input.GetAxisRaw("Vertical"));
+        float vertical = Mathf.Clamp01(_rewiredPlayer.GetAxisRaw("Vertical"));
         float acceleration = _acceleration * _accelerationFactorRange.Lerp(1 - Vector2.Dot(transform.up, _velocity.normalized));
         _velocity += (Vector2) transform.up * vertical * acceleration * Time.deltaTime;
         _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
@@ -62,5 +66,4 @@ public class PlayerMovement : MonoBehaviour
         if (hit.normal == Vector2.zero) return;
         transform.position = hit.centroid + hit.normal * SkinWidth;
     }
-
 }
