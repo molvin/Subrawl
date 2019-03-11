@@ -1,18 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Bubble_Hazard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Tooltip("Use 1-10 for Speed")]
+    public float moveSpeed = 0;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log ("Bubble bobble");
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.Translate(0, moveSpeed * Time.deltaTime, 0);
     }
 }
