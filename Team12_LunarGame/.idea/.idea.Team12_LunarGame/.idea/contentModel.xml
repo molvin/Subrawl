@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\per.akerstrom\.Rider2018.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\per.akerstrom\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_Team12_LunarGame.1061047199.00" t="ExcludeRecursive" />
-    <e p="D:\UnityProjects\Team12_Project\Team12_LunarGame" t="IncludeRecursive">
+    <e p="C:\Users\peke5863\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\peke5863\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Team12_LunarGame.466826099.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\FG_Unity_RetroGame\Team12_Project\Team12_LunarGame" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="PlayerValues.cs" t="Include" />
+        <e p="Prefabs" t="Include">
+          <e p="Hazards" t="Include">
+            <e p="Spawner.cs" t="Include" />
+          </e>
+        </e>
         <e p="Rewired" t="Include">
           <e p="Extras" t="Include">
             <e p="ControlMapper" t="Include">
@@ -92,7 +98,14 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Environment" t="Include">
+            <e p="Bubble_Hazard.cs" t="Include" />
+          </e>
+          <e p="GameLoop" t="Include">
+            <e p="GameManager.cs" t="Include" />
+          </e>
           <e p="Player" t="Include">
+            <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="Utility" t="Include">
