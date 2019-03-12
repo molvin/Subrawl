@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
     [SerializeField] private LayerMask _collisionLayers = default(LayerMask);
-    [SerializeField] private int _rewiredId = 0;
+    public int RewiredId = 0;
     [SerializeField] private Vector2 _velocity;
     private CircleCollider2D _collider;    
     private const float SkinWidth = 0.03f;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
-        _rewiredPlayer = ReInput.players.GetPlayer(_rewiredId);
+        _rewiredPlayer = ReInput.players.GetPlayer(RewiredId);
     }
     private void Update()
     {
