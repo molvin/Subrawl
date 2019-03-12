@@ -27,7 +27,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (other.tag == "Coral")
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
             if (Overlap)
             {
