@@ -7,6 +7,7 @@ public class Bubble_Hazard : MonoBehaviour
     public GameObject player;
     public bool Overlap;
     public GameObject Coral;
+    public float Meter = 0;
 
     private void Start()
     {
@@ -30,7 +31,9 @@ public class Bubble_Hazard : MonoBehaviour
 
             if (Overlap)
             {
-                Destroy(player.gameObject);
+                Meter = 0;
+                player.GetComponent<PlayerHealth>().TakeDamage();
+                player.GetComponent<PlayerMovement>().enabled = true;
             }
 
         }
@@ -48,14 +51,32 @@ public class Bubble_Hazard : MonoBehaviour
     void Update()
     {
         transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-        print(transform.position);
 
         if (Overlap)
         {
             player.transform.position = gameObject.transform.position;
         }
 
+        if (Overlap)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                Meter = Meter + 1;
+            }
+        }
+
+
+        if (Meter >= 30)
+        {
+            Destroy(this.gameObject);
+            player.GetComponent<PlayerMovement>().enabled = true;
+            Meter = 0;
+            print("You broke free");
+        }
+
+
     }
+
 
 
 }
