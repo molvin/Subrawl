@@ -6,10 +6,12 @@ public class Bubble_Hazard : MonoBehaviour
     public float moveSpeed = 0;
     public GameObject player;
     public bool Overlap;
+    public GameObject Coral;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        Coral = GameObject.FindGameObjectWithTag("Coral");
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,6 +23,26 @@ public class Bubble_Hazard : MonoBehaviour
             player.GetComponent<PlayerMovement>().enabled = false;
             player.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
         }
+
+        if (other.tag == "Coral")
+        {
+            Destroy(this.gameObject);
+
+            if (Overlap)
+            {
+                Destroy(player.gameObject);
+            }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Overlap = false;
+        }
+
     }
 
     void Update()
