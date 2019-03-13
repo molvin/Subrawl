@@ -25,6 +25,7 @@ public class PlayerValues : MonoBehaviour
     public void Die()
     {
         GameManager.HandlePlayerDeath(Id);
+        _players.Remove(Id);
         Destroy(gameObject);
     }
     public static PlayerValues GetPlayer(int id)
