@@ -17,6 +17,11 @@ public class CollisionManager : MonoBehaviour
    
    public static void HandlePlayerCollision(PlayerMovement collidedWith, Vector2 velocity)
    {
+      if (_instance == null)
+      {
+         GameObject go = new GameObject("CollisionManager");
+         _instance = go.AddComponent<CollisionManager>();
+      }
       _instance._playerCollisionEvents.Add(new Tuple<PlayerMovement, Vector2>{First = collidedWith, Second = velocity});
       _instance._waitOneFrame = true;
    }
