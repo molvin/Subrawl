@@ -21,10 +21,14 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
-        _rewiredPlayer = ReInput.players.GetPlayer(RewiredId);
     }
     private void Update()
     {
+        if (_rewiredPlayer == null)
+        {
+            _rewiredPlayer = ReInput.players.GetPlayer(RewiredId);
+            if (_rewiredPlayer == null) return;
+        }
         UpdateRotation();
         UpdateMovement();
         UpdateTranslation();
