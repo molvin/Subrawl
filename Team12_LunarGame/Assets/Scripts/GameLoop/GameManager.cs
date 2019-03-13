@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private int _playerMaxLives = 5;
-    [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;    
+    [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;
+
+    [SerializeField] private LayerMask Player1CollisionLayers;
+    [SerializeField] private LayerMask Player2CollisionLayers;
     
     public static readonly Dictionary<int, int> PlayerLives = new Dictionary<int, int>();
     public static Action OnLivesChanged;
@@ -40,12 +43,13 @@ public class GameManager : MonoBehaviour
         instance.GetComponent<PlayerValues>().Id = id;
         instance.GetComponent<PlayerMovement>().RewiredId = id;
         instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
+        instance.GetComponent<PlayerMovement>().CollisionLayers = id == 0 ? Player1CollisionLayers : Player2CollisionLayers;
     }
-    private Vector2 GetRandomSpawnPoint()
+    public static Vector2 GetRandomSpawnPoint()
     {
         float width = Camera.main.orthographicSize * 2f;
         float height = width / Camera.main.aspect;
-        Vector2 randomSize = new Vector2(width - _spawnPositionEdgeBuffer, height - _spawnPositionEdgeBuffer / Camera.main.aspect);
+        Vector2 randomSize = new Vector2(width - _instance._spawnPositionEdgeBuffer, height -  _instance._spawnPositionEdgeBuffer / Camera.main.aspect);
         return new Vector2(UnityEngine.Random.Range(-randomSize.x, randomSize.x), UnityEngine.Random.Range(-randomSize.y, randomSize.y));
     }
 

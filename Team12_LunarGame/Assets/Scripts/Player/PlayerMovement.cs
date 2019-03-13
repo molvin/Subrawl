@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 250;
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
-    [SerializeField] private LayerMask _collisionLayers = default(LayerMask);
+    public LayerMask CollisionLayers = default(LayerMask);
     public int RewiredId = 0;
     [SerializeField] private Vector2 _velocity;
     private CircleCollider2D _collider;    
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private RaycastHit2D Cast()
     {
-        return Physics2D.CircleCast(transform.position, _collider.radius, _velocity.normalized, _velocity.magnitude * Time.deltaTime + SkinWidth, _collisionLayers);
+        return Physics2D.CircleCast(transform.position, _collider.radius, _velocity.normalized, _velocity.magnitude * Time.deltaTime + SkinWidth, CollisionLayers);
     }
     private void Snap(RaycastHit2D hit)
     {

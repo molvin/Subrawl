@@ -14,6 +14,8 @@ public class PlayerValues : MonoBehaviour
             _players[Id] = this;
         else
             _players.Add(Id, this);
+        
+        gameObject.layer = Id == 0 ? LayerMask.NameToLayer("Player 1") : LayerMask.NameToLayer("Player 2");
     }
 
     private void Update()

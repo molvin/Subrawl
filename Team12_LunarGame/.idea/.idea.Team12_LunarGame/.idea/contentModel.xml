@@ -7,7 +7,9 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="PickupManagerTestUI.cs" t="Include" />
         <e p="PlayerValues.cs" t="Include" />
+        <e p="PongManager.cs" t="Include" />
         <e p="Prefabs" t="Include">
           <e p="Hazards" t="Include">
             <e p="KillZone.cs" t="Include" />
@@ -109,6 +111,8 @@
             <e p="PacMan" t="Include">
               <e p="PacManAIFollow.cs" t="Include" />
             </e>
+            <e p="PickupManager.cs" t="Include" />
+            <e p="PickupObject.cs" t="Include" />
           </e>
           <e p="Player" t="Include">
             <e p="PlayerHealth.cs" t="Include" />
@@ -147,6 +151,7 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
+        <e p="TriggerCollider.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
