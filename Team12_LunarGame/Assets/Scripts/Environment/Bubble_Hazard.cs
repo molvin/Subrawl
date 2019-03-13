@@ -8,6 +8,8 @@ public class Bubble_Hazard : MonoBehaviour
     public bool Overlap;
     public GameObject Coral;
     public float Meter = 0;
+    public GameObject parent;
+    private float Transparency = .30f;
 
     private void Start()
     {
@@ -25,9 +27,9 @@ public class Bubble_Hazard : MonoBehaviour
             player.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
         }
 
-        if (other.tag == "Coral")
+        if (other.tag == "KillZone")
         {
-            //Destroy(this.gameObject);
+            Destroy(transform.root.gameObject);
 
             if (Overlap)
             {
@@ -50,7 +52,8 @@ public class Bubble_Hazard : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(0, moveSpeed * Time.deltaTime, 0);
+        parent.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
+        print(Transparency);
 
         if (Overlap)
         {
@@ -62,13 +65,13 @@ public class Bubble_Hazard : MonoBehaviour
             if (Input.GetButtonDown("Jump"))
             {
                 Meter = Meter + 1;
+                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
             }
         }
 
-
         if (Meter >= 30)
         {
-            Destroy(this.gameObject);
+            Destroy(transform.root.gameObject);
             player.GetComponent<PlayerMovement>().enabled = true;
             Meter = 0;
             print("You broke free");

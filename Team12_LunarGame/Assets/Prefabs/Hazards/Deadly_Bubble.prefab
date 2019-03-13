@@ -130,6 +130,7 @@ MonoBehaviour:
   Overlap: 0
   Coral: {fileID: 0}
   Meter: 3
+  parent: {fileID: 5504284470983874267}
 --- !u!61 &9047838961936167379
 BoxCollider2D:
   m_ObjectHideFlags: 0
