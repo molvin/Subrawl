@@ -9,9 +9,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _playerPrefab;
     [SerializeField] private int _playerMaxLives = 5;
     [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;
-
-    [SerializeField] private LayerMask Player1CollisionLayers;
-    [SerializeField] private LayerMask Player2CollisionLayers;
     
     public static readonly Dictionary<int, int> PlayerLives = new Dictionary<int, int>();
     public static Action OnLivesChanged;
@@ -40,10 +37,12 @@ public class GameManager : MonoBehaviour
     private void SpawnPlayer(int id)
     {
         GameObject instance = Instantiate(_playerPrefab, GetRandomSpawnPoint(), Quaternion.identity);
-        instance.GetComponent<PlayerValues>().Id = id;
+        PlayerValues playerValues = instance.GetComponent<PlayerValues>();
+        playerValues.Id = id;
+        playerValues.Invincible = true;
         instance.GetComponent<PlayerMovement>().RewiredId = id;
+        //Temp
         instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
-        instance.GetComponent<PlayerMovement>().CollisionLayers = id == 0 ? Player1CollisionLayers : Player2CollisionLayers;
     }
     public static Vector2 GetRandomSpawnPoint()
     {

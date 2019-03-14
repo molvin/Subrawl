@@ -60,7 +60,6 @@ public class PongManager : MonoBehaviour
 
     private void ResetPong()
     {
-        Debug.Log("Reset pong");
         foreach (GameObject go in _paddles)
         {
             Destroy(go);
