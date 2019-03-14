@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Coral
   - Player2
+  - enemySpawnPoints
   layers:
   - Default
   - TransparentFX
