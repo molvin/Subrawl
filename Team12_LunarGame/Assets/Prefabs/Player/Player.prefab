@@ -214,10 +214,10 @@ MonoBehaviour:
   _rotationSpeed: 250
   _bounceForceMultiplier: 0.5
   _playerBounceMultiplier: 1.5
-  _collisionLayers:
+  CollisionLayers:
     serializedVersion: 2
     m_Bits: 1
-  _rewiredId: 0
+  RewiredId: 0
   _velocity: {x: 0, y: 0}
 --- !u!58 &5973473940341684426
 CircleCollider2D:
