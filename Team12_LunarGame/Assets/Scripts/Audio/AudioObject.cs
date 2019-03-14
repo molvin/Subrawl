@@ -1,12 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [CreateAssetMenu(menuName = "AudioObject")]
 public class AudioObject : ScriptableObject
 {
     public string Name;
     public List<AudioClip> Clips;
+    public bool Looping;
+    public bool RandomizeStartTime;
+    [Range(0.0f, 1.0f)] public float Volume = 0.5f;
+    public AudioMixerGroup Output;
 
     public AudioClip GetRandomClip()
     {

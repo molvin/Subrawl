@@ -12,15 +12,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
     public LayerMask CollisionLayers = default(LayerMask);
-    public int RewiredId = 0;
+    public int RewiredId;
     [SerializeField] private Vector2 _velocity;
     private CircleCollider2D _collider;    
     private const float SkinWidth = 0.03f;
     private Player _rewiredPlayer;
+    private int _id;
     
     private void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
+        _id = GetComponent<PlayerValues>().Id;
+        gameObject.layer = LayerMask.NameToLayer("Player " + (_id == 0 ? 1 : 2));
+        CollisionLayers = CollisionLayers | LayerMask.NameToLayer("Player " + (_id == 0 ? 2 : 1));
     }
     private void Update()
     {
@@ -29,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
             _rewiredPlayer = ReInput.players.GetPlayer(RewiredId);
             if (_rewiredPlayer == null) return;
         }
+
         UpdateRotation();
         UpdateMovement();
         UpdateTranslation();

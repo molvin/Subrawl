@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     
     private List<AudioObject> _audioObjects = new List<AudioObject>();
     private Dictionary<string, AudioObject> _audioObjectDictionary;
+    private readonly List<AudioSource> _playingSources = new List<AudioSource>();
     
     private void Awake()
     {
@@ -29,7 +30,23 @@ public class AudioManager : MonoBehaviour
         _audioObjects = Resources.LoadAll<AudioObject>("").ToList();
         BuildDictionary();
     }
-    public static void PlaySound(string audioObjectName)
+    private void Update()
+    {
+        List<AudioSource> destroyList = new List<AudioSource>();
+        foreach (AudioSource source in _playingSources)
+        {
+            if(!source.isPlaying)
+                destroyList.Add(source);
+        }
+
+        foreach (AudioSource source in destroyList)
+        {
+            _playingSources.Remove(source);
+            Destroy(source.gameObject);
+        }
+        _playingSources.Clear();
+    }
+    public static AudioRemote PlaySound(string audioObjectName)
     {
         if (_instance == null)
         {
@@ -42,10 +59,20 @@ public class AudioManager : MonoBehaviour
         if (!_instance._audioObjectDictionary.ContainsKey(audioObjectName))
         {
             Debug.LogWarning("No audio object with name: " + audioObjectName);
-            return;
+            return null;
         }
         
-        //TODO: play audio object sound
+        AudioObject ao = _instance._audioObjectDictionary[audioObjectName];
+        AudioSource source = Instantiate(_instance._audioSourcePrefab);
+        source.clip = ao.GetRandomClip();
+        source.loop = ao.Looping;
+        source.volume = ao.Volume;
+        if (ao.RandomizeStartTime)
+            source.time = Random.Range(0.0f, source.clip.length);
+        source.Play();
+        _instance._playingSources.Add(source);
+        
+        return new AudioRemote(source);
     }
     private void BuildDictionary()
     {
@@ -53,5 +80,18 @@ public class AudioManager : MonoBehaviour
         
         foreach (AudioObject ao in _audioObjects)
             _audioObjectDictionary.Add(ao.Name, ao);        
+    }
+}
+public class AudioRemote
+{
+    private readonly AudioSource _source;
+
+    public AudioRemote(AudioSource source)
+    {
+        _source = source;
+    }
+    public void Stop()
+    {
+        _source.Stop();
     }
 }
