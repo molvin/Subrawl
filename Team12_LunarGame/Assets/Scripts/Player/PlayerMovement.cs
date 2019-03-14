@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 250;
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
-    [SerializeField] private LayerMask _collisionLayers = default(LayerMask);
+    public LayerMask CollisionLayers = default(LayerMask);
     public int RewiredId = 0;
     [SerializeField] private Vector2 _velocity;
     private CircleCollider2D _collider;    
@@ -60,20 +60,31 @@ public class PlayerMovement : MonoBehaviour
             _velocity += bounceDirection.normalized * force * _bounceForceMultiplier;
             //Handle collision with other player
             PlayerMovement otherPlayer = hit.collider.GetComponent<PlayerMovement>();
-            if (otherPlayer != null && Vector2.Dot(preHitVelocity.normalized, hit.normal) < 0.0f)
-                CollisionManager.HandlePlayerCollision(otherPlayer, preHitVelocity.normalized * Vector2.Dot(preHitVelocity, hit.normal) * -1f * _playerBounceMultiplier);
+            if (otherPlayer != null)
+                HandlePlayerCollision(hit, otherPlayer);
         }
-        
+        _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
         transform.position += (Vector3) _velocity * Time.deltaTime;
     }
     private RaycastHit2D Cast()
     {
-        return Physics2D.CircleCast(transform.position, _collider.radius, _velocity.normalized, _velocity.magnitude * Time.deltaTime + SkinWidth, _collisionLayers);
+        return Cast(_velocity);
+    }
+    private RaycastHit2D Cast(Vector2 velocity)
+    {
+        return Physics2D.CircleCast(transform.position, _collider.radius, velocity.normalized, velocity.magnitude * Time.deltaTime + SkinWidth, CollisionLayers);
     }
     private void Snap(RaycastHit2D hit)
     {
         if (hit.normal == Vector2.zero) return;
         transform.position = hit.centroid + hit.normal * SkinWidth;
+    }
+    private void HandlePlayerCollision(RaycastHit2D hit, PlayerMovement otherPlayer)
+    {
+        Debug.DrawRay(hit.point, hit.normal * 10.0f, Color.blue, 5f);
+        _velocity = hit.normal * _terminalVelocity;
+        Debug.DrawRay(hit.point, -hit.normal * 10.0f, Color.red, 5f);
+        otherPlayer._velocity = -hit.normal * _terminalVelocity;
     }
     public void AddVelocity(Vector2 velocity)
     {

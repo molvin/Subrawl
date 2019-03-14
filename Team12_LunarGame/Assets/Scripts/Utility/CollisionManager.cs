@@ -7,7 +7,7 @@ public class CollisionManager : MonoBehaviour
    private static CollisionManager _instance;
 
    private bool _waitOneFrame;
-   private readonly List<Tuple<PlayerMovement, Vector2>> _playerCollisionEvents = new List<Tuple<PlayerMovement, Vector2>>();
+   private readonly Dictionary<PlayerMovement, Vector2> _playerCollisionEvents = new Dictionary<PlayerMovement, Vector2>();
    
    private void Awake()
    {
@@ -17,12 +17,8 @@ public class CollisionManager : MonoBehaviour
    
    public static void HandlePlayerCollision(PlayerMovement collidedWith, Vector2 velocity)
    {
-      if (_instance == null)
-      {
-         GameObject go = new GameObject("CollisionManager");
-         _instance = go.AddComponent<CollisionManager>();
-      }
-      _instance._playerCollisionEvents.Add(new Tuple<PlayerMovement, Vector2>{First = collidedWith, Second = velocity});
+      if(!_instance._playerCollisionEvents.ContainsKey(collidedWith))
+         _instance._playerCollisionEvents.Add(collidedWith, velocity);
       _instance._waitOneFrame = true;
    }
    private void Update()
@@ -35,9 +31,10 @@ public class CollisionManager : MonoBehaviour
       if (_playerCollisionEvents.Count == 0) 
          return;
 
-      foreach (Tuple<PlayerMovement,Vector2> collisionEvent in _playerCollisionEvents)
+      foreach (KeyValuePair<PlayerMovement, Vector2> collisionEvent in _playerCollisionEvents)
       {
-         collisionEvent.First.AddVelocity(collisionEvent.Second);
+         collisionEvent.Key.AddVelocity(collisionEvent.Value);
+         Debug.Log(collisionEvent.Key.name + " : " + collisionEvent.Value);
       }
       _playerCollisionEvents.Clear();
    }
