@@ -6,9 +6,12 @@ public class Spawner : MonoBehaviour
 {
     public Transform[] spawnlocations;
     public GameObject[] whatTospawnPrefab;
+    public PlayAnimation Animator;
 
     private void Start()
     {
+        Animator.Hello();
+        Animator.PlayAnim();
         SpawnBubbles();
     }
 
@@ -20,14 +23,9 @@ public class Spawner : MonoBehaviour
         StartCoroutine(DelayOnSpawn());
     }
 
-    private void Update()
-    {
-        print(gameObject.transform.position);
-    }
-
     IEnumerator DelayOnSpawn()
     {
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(5);
         SpawnBubbles();
     }
 
