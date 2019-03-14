@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private RaycastHit2D Cast(Vector2 velocity)
     {
-        return Physics2D.CircleCast(transform.position, _collider.radius, velocity.normalized, velocity.magnitude * Time.deltaTime + SkinWidth, _collisionLayers);
+        return Physics2D.CircleCast(transform.position, _collider.radius, velocity.normalized, velocity.magnitude * Time.deltaTime + SkinWidth, CollisionLayers);
     }
     private void Snap(RaycastHit2D hit)
     {
