@@ -633,12 +633,27 @@ PrefabInstance:
     - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
       propertyPath: _pickups.Array.data[0].OnActivation.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
       propertyPath: _pickups.Array.data[0].ObjectsToSpawn.Array.size
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].ObjectsToSpawn.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
@@ -684,17 +699,77 @@ PrefabInstance:
         type: 3}
       propertyPath: _pickups.Array.data[0].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 11500000, guid: 829c9370fa78c434591f5bc3a6b6d397,
-        type: 3}
+      objectReference: {fileID: 887832111}
     - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
       propertyPath: _pickups.Array.data[0].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: 
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
       propertyPath: _pickups.Array.data[0].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].Name
+      value: PacMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 887832111}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 887832111}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131584884153349133, guid: 06505a73ee1abb54f8be4c0bbb94b736,
+        type: 3}
+      propertyPath: _pickups.Array.data[1].OnActivation.m_TypeName
+      value: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
     - target: {fileID: 2131584884224823526, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
