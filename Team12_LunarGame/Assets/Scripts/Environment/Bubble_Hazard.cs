@@ -13,6 +13,7 @@ public class Bubble_Hazard : MonoBehaviour
     public GameObject parent;
     private float Transparency = .30f;
     public float Meter2 = 0;
+    public Spawner Spawner;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class Bubble_Hazard : MonoBehaviour
             player2.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
         }
 
-        if (other.tag == "KillZone")
+        if (other.tag == "Coral")
         {
             Destroy(transform.root.gameObject);
 
@@ -65,7 +66,6 @@ public class Bubble_Hazard : MonoBehaviour
     void Update()
     {
         parent.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-        print(Transparency);
 
         if (Overlap)
         {
@@ -95,8 +95,6 @@ public class Bubble_Hazard : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
             }
         }
-
-        print(Meter2);
 
         if (Meter >= 30)
         {
