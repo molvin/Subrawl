@@ -10,22 +10,28 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnBubbles();
+        Animator.PlayAnim();
+        StartCoroutine(DelayOnSpawn());
     }
 
+    public void SpawnRoutine()
+    {
+        Animator.PlayAnim();
+        StartCoroutine(DelayOnSpawn());
+    }
     void SpawnBubbles()
     {
-        Animator.StopAnim();
         Instantiate(whatTospawnPrefab[0], spawnlocations[0].transform.position, Quaternion.Euler(0, 0, 0));
         Instantiate(whatTospawnPrefab[0], spawnlocations[1].transform.position, Quaternion.Euler(0, 0, 0));
         Instantiate(whatTospawnPrefab[0], spawnlocations[2].transform.position, Quaternion.Euler(0, 0, 0));
-        StartCoroutine(DelayOnSpawn());
-        SpawnBubbles();
+        SpawnRoutine();
     }
 
     IEnumerator DelayOnSpawn()
-    {       
+    {
         yield return new WaitForSeconds(20);
+        Animator.StopAnim();
+        SpawnBubbles();
     }
 
 }
