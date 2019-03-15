@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3007455384558491999}
   - component: {fileID: 1081340281612437946}
   - component: {fileID: 2790306542409547319}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PacManAI
   m_TagString: Untagged
   m_Icon: {fileID: 0}

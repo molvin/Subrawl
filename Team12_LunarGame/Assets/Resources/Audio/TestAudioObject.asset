@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd056d2ef1393b44b01508358ce922d, type: 3}
   m_Name: TestAudioObject
   m_EditorClassIdentifier: 
-  Name: 
+  Name: TestSound
   Clips: []
-  Looping: 0
-  Volume: 0
+  Looping: 1
+  RandomizeStartTime: 0
+  Volume: 0.5
   Output: {fileID: 0}

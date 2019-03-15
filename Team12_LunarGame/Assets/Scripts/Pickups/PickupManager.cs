@@ -21,6 +21,7 @@ public class PickupManager : MonoBehaviour
     [SerializeField] private PickupObject _pickUpObject;
     
     private float _timeOfLastPickup;
+    private int _currentPickupOwner;
     
     private void Start()
     {
@@ -39,6 +40,7 @@ public class PickupManager : MonoBehaviour
     }
     private void OnPickUp(int playerId, Pickup pickup)
     {
+        _currentPickupOwner = playerId;
         Debug.Log("Activated: " + pickup.Name);
         foreach (GameObject go in pickup.ObjectsToSpawn)
             Instantiate(go);
@@ -54,5 +56,10 @@ public class PickupManager : MonoBehaviour
     public Pickup GetPickUp(string pickupName)
     {
         return _pickups.FirstOrDefault(pickup => pickup.Name == pickupName);
+    }
+
+    public int GetCurrentPickupOwner()
+    {
+        return _currentPickupOwner;
     }
 }

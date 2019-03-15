@@ -17,7 +17,15 @@ public class PickupObject : MonoBehaviour
             return;
 
         _triggered = true;
-        OnPickup.Invoke(player.Id);
+        try
+        {
+            OnPickup.Invoke(player.Id);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
+       
         Destroy(gameObject);
     }
 }
