@@ -45,18 +45,25 @@ public class Bubble_Hazard : MonoBehaviour
             }
         }
 
-//        if (other.tag == "Coral")
-//        {
-//            Destroy(transform.root.gameObject);
-//
-//            if (Overlap)
-//            {
-//                Meter = 0;
-//                player.GetComponent<PlayerValues>().Die();
-//                player.GetComponent<PlayerMovement>().enabled = true;
-//            }
-//
-//        }
+        if (other.tag == "Coral")
+        {
+            Destroy(transform.root.gameObject);
+
+            if (Overlap)
+            {
+                Meter = 0;
+                PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
+                PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+            }
+
+            if (Overlap2)
+            {
+                Meter2 = 0;
+                PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
+                PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+            }
+
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -95,7 +102,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Overlap)
         {
-            if (Input.GetButtonDown("Jump"))
+            if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter = Meter + 1;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
@@ -104,14 +111,14 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Overlap2)
         {
-            if (Input.GetButtonDown("Submit"))
+            if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter2 = Meter2 + 1;
                 GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
             }
         }
 
-        if (Meter >= 30)
+        if (Meter >= 20)
         {
             Destroy(transform.root.gameObject);
             PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
@@ -119,7 +126,7 @@ public class Bubble_Hazard : MonoBehaviour
             print("You broke free");
         }
 
-        if (Meter2 >= 30)
+        if (Meter2 >= 20)
         {
             Destroy(transform.root.gameObject);
             PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
