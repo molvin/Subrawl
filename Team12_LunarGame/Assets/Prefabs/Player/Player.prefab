@@ -205,12 +205,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bebfa03c77b1a438cbf421168e0369, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gravity: 8
-  _acceleration: 40
+  _gravity: 6
+  _acceleration: 25
   _accelerationFactorRange:
-    Min: 0.6
+    Min: 0.55
     Max: 1
-  _terminalVelocity: 15
+  _terminalVelocity: 11
   _rotationSpeed: 250
   _bounceForceMultiplier: 0.5
   _playerBounceMultiplier: 1.5

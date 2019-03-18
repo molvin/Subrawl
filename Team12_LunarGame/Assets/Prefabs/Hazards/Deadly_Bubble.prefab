@@ -135,6 +135,8 @@ MonoBehaviour:
   parent: {fileID: 5504284470983874267}
   Meter2: 0
   Spawner: {fileID: 0}
+  TimeToDeath: 20
+  KillY: 20
 --- !u!61 &9047838961936167379
 BoxCollider2D:
   m_ObjectHideFlags: 0
