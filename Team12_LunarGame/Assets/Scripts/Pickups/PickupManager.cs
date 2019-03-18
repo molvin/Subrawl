@@ -36,8 +36,11 @@ public class PickupManager : MonoBehaviour
     }
     private void SpawnPickUp()
     {
-        int index = Random.Range(0, _pickups.Length);      
-        Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity).OnPickup += id => OnPickUp(id, _pickups[index]);       
+        int index = Random.Range(1, _pickups.Length);      
+        Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity).OnPickup += id => OnPickUp(id, _pickups[index]);
+        Pickup temp = _pickups[index];
+        _pickups[index] = _pickups[0];
+        _pickups[0] = temp;
     }
     public void OnPickUp(int playerId, Pickup pickup)
     {

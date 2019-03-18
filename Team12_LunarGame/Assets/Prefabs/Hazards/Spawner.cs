@@ -7,20 +7,17 @@ public class Spawner : MonoBehaviour
     public Transform[] spawnlocations;
     public GameObject[] whatTospawnPrefab;
     public PlayAnimation[] Animators;
-    public float DelayBeforeSpawn;
+    public float DelayBeforeSpawn = 20;
+    public float DelayBeforeBubbles = 5;
 
     private void Start()
-    {
-        //Animator.PlayAnim();
-        //StartCoroutine(DelayOnSpawn());
+    {       
+        StartCoroutine(DelayOnSpawn());
     }
 
     public void SpawnRoutine()
     {
-        foreach (PlayAnimation animator in Animators)
-        {
-            animator.PlayAnim();
-        }
+        
         StartCoroutine(DelayOnSpawn());
     }
     void SpawnBubbles()
@@ -28,12 +25,17 @@ public class Spawner : MonoBehaviour
         Instantiate(whatTospawnPrefab[0], spawnlocations[0].transform.position, Quaternion.Euler(0, 0, 0));
         Instantiate(whatTospawnPrefab[0], spawnlocations[1].transform.position, Quaternion.Euler(0, 0, 0));
         Instantiate(whatTospawnPrefab[0], spawnlocations[2].transform.position, Quaternion.Euler(0, 0, 0));
-        //SpawnRoutine();
+        SpawnRoutine();
     }
 
     IEnumerator DelayOnSpawn()
     {
         yield return new WaitForSeconds(DelayBeforeSpawn);
+        foreach (PlayAnimation animator in Animators)
+        {
+            animator.PlayAnim();
+        }
+        yield return new WaitForSeconds(DelayBeforeBubbles);
         foreach (PlayAnimation animator in Animators)
         {
             animator.StopAnim();
