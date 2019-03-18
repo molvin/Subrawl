@@ -12,20 +12,27 @@ public class PacManAIFollow : MonoBehaviour{
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.name == "Player 1")
+        PlayerValues player = other.gameObject.GetComponent<PlayerValues>();
+        if (player != null)
         {
-            //player.GetComponent<PlayerHealth>().TakeDamage();
-            player.GetComponent<PlayerValues>().Die();
-            Destroy(this.gameObject, 0.5f);
+            player.Die();
+            Destroy(gameObject, 0.5f);
         }
 
-        else if (other.gameObject.name == "Player 2")
-        {
-            //player2.GetComponent<PlayerHealth>().TakeDamage();
-            player2.GetComponent<PlayerValues>().Die();
-
-            Destroy(this.gameObject, 0.5f);
-        }
+//        if (other.gameObject.name == "Player 1")
+//        {
+//            //player.GetComponent<PlayerHealth>().TakeDamage();
+//            player.GetComponent<PlayerValues>().Die();
+//            Destroy(this.gameObject, 0.5f);
+//        }
+//
+//        else if (other.gameObject.name == "Player 2")
+//        {
+//            //player2.GetComponent<PlayerHealth>().TakeDamage();
+//            player2.GetComponent<PlayerValues>().Die();
+//
+//            Destroy(this.gameObject, 0.5f);
+//        }
 
 
     }

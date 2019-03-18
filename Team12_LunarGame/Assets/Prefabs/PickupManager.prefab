@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2131584884153349130}
   - component: {fileID: 2131584884153349133}
+  - component: {fileID: 96847363}
+  - component: {fileID: 96847364}
   m_Layer: 0
   m_Name: PickupManager
   m_TagString: Untagged
@@ -47,16 +49,81 @@ MonoBehaviour:
   _timeBetweenPickups: 10
   _gameStartDelay: 3
   _pickups:
-  - Name: TestPickup
-    RandomModifier: 1
+  - Name: Pong
     ObjectsToSpawn: []
-    Event:
+    OnActivation:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 96847363}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - Name: PacMan
+    ObjectsToSpawn: []
+    OnActivation:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 96847364}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   _pickUpObject: {fileID: 8548198661310550031, guid: f28b2e316e73b4b4fb68f5f37c2f2ee4,
     type: 3}
+--- !u!114 &96847363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131584884153349132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e48eef2b9d36194aa390259e20f739b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paddlePrefab: {fileID: 4177462455046048972, guid: 4a94e63a674b9da4c8c3e682fc558780,
+    type: 3}
+  _ballPrefab: {fileID: 8898477771451675539, guid: c8a91baa2adf23d4184357f87a4af5d7,
+    type: 3}
+  _ballSpeed: 15
+  _paddleXDistanceFromCenter: 20
+  _ballCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 769
+  _duration: 8
+--- !u!114 &96847364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131584884153349132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18bf4723b3595ea48a84bc4e2319b0bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 3127106177461999179, guid: 64b4692cf6bbf03458db961b6b1684e7, type: 3}
+  spawnTime: 3
+  spawnPoints: []
 --- !u!1 &2131584884224823528
 GameObject:
   m_ObjectHideFlags: 0

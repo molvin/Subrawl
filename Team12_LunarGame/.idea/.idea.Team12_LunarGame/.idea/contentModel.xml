@@ -7,6 +7,8 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="GameManagerDebugger.cs" t="Include" />
+        <e p="HealthUI.cs" t="Include" />
         <e p="MainMenu.cs" t="Include" />
         <e p="PlayAnimation.cs" t="Include" />
         <e p="Prefabs" t="Include">

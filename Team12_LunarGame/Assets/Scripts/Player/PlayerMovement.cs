@@ -22,9 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _collider = GetComponent<CircleCollider2D>();
-        _id = GetComponent<PlayerValues>().Id;
+        _id = GetComponent<PlayerValues>().Id;    
         gameObject.layer = LayerMask.NameToLayer("Player " + (_id == 0 ? 1 : 2));
-        CollisionLayers = CollisionLayers | LayerMask.NameToLayer("Player " + (_id == 0 ? 2 : 1));
+        LayerMask otherPlayerLayer = LayerMask.GetMask("Player " + (_id == 0 ? "2" : "1"));
+        CollisionLayers |= otherPlayerLayer.value;
     }
     private void Update()
     {
