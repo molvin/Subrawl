@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     
     public static readonly Dictionary<int, int> PlayerLives = new Dictionary<int, int>();
     public static Action OnLivesChanged;
+    public static Action<int, int> OnLifeUpdate;
+    
+    public static int MaxLives => _instance._playerMaxLives;
+    public float SpawnPositionEdgeBuffer => _spawnPositionEdgeBuffer;
 
     private void Awake()
     {
@@ -35,11 +39,10 @@ public class GameManager : MonoBehaviour
             return;
 
         PlayerLives[deadPlayerId]--;
+        if (PlayerLives[deadPlayerId] > 0)
+            _instance.SpawnPlayer(deadPlayerId);    
         OnLivesChanged?.Invoke();
-
-        if (PlayerLives[deadPlayerId] <= 0) return;
-        
-        _instance.SpawnPlayer(deadPlayerId);    
+        OnLifeUpdate?.Invoke(deadPlayerId, PlayerLives[deadPlayerId]);
     }
     private void SpawnPlayer(int id)
     {
@@ -53,9 +56,9 @@ public class GameManager : MonoBehaviour
     }
     public static Vector2 GetRandomSpawnPoint()
     {
-        float width = Camera.main.orthographicSize * 2f;
-        float height = width / Camera.main.aspect;
-        Vector2 randomSize = new Vector2(width - _instance._spawnPositionEdgeBuffer, height -  _instance._spawnPositionEdgeBuffer / Camera.main.aspect);
+        float height = Camera.main.orthographicSize;
+        float width = height * Camera.main.aspect;
+        Vector2 randomSize = new Vector2(width - _instance._spawnPositionEdgeBuffer * Camera.main.aspect, height -  _instance._spawnPositionEdgeBuffer);
         return new Vector2(UnityEngine.Random.Range(-randomSize.x, randomSize.x), UnityEngine.Random.Range(-randomSize.y, randomSize.y));
     }
 
@@ -65,5 +68,7 @@ public class GameManager : MonoBehaviour
         PlayerLives.Add(0, _instance._playerMaxLives);
         PlayerLives.Add(1, _instance._playerMaxLives);
         OnLivesChanged?.Invoke();
+        OnLifeUpdate?.Invoke(0, _instance._playerMaxLives);
+        OnLifeUpdate?.Invoke(1, _instance._playerMaxLives);
     }
 }
