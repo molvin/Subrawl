@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
             return;
 
         ResetLives();
+
+        if (FindObjectOfType<PlayerValues>() == null)
+        {
+            SpawnPlayer(0);
+            SpawnPlayer(1);
+        }
+        
     }
     public static void HandlePlayerDeath(int deadPlayerId)
     {

@@ -1436,12 +1436,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 968014348302697310, guid: 093332ce225281b4599dd0f74cb121b1,
         type: 3}
+      propertyPath: Animators.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 968014348302697310, guid: 093332ce225281b4599dd0f74cb121b1,
+        type: 3}
       propertyPath: whatTospawnPrefab.Array.data[0]
       value: 
       objectReference: {fileID: 128782580}
     - target: {fileID: 968014348302697310, guid: 093332ce225281b4599dd0f74cb121b1,
         type: 3}
       propertyPath: Animator
+      value: 
+      objectReference: {fileID: 1266901873}
+    - target: {fileID: 968014348302697310, guid: 093332ce225281b4599dd0f74cb121b1,
+        type: 3}
+      propertyPath: Animators.Array.data[0]
       value: 
       objectReference: {fileID: 1266901873}
     - target: {fileID: 968014348302697377, guid: 093332ce225281b4599dd0f74cb121b1,
