@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
         playerValues.Invincible = true;
         instance.GetComponent<PlayerMovement>().RewiredId = id;
         //Temp
-        instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
+      //  instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
     }
     public static Vector2 GetRandomSpawnPoint()
     {

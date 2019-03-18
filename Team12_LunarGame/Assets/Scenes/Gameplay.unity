@@ -1457,7 +1457,7 @@ GameObject:
   - component: {fileID: 348004254}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Coral
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3246,6 +3246,11 @@ PrefabInstance:
       propertyPath: spawnPoints.Array.data[3]
       value: 
       objectReference: {fileID: 825439437}
+    - target: {fileID: 96847364, guid: 06505a73ee1abb54f8be4c0bbb94b736, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1293847549840146386, guid: 64b4692cf6bbf03458db961b6b1684e7,
+        type: 3}
     - target: {fileID: 2131584885151250108, guid: 06505a73ee1abb54f8be4c0bbb94b736,
         type: 3}
       propertyPath: m_LocalPosition.z

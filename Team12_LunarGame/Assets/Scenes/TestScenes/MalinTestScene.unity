@@ -412,6 +412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PacManAI
       objectReference: {fileID: 0}
+    - target: {fileID: 808771195339901458, guid: 64b4692cf6bbf03458db961b6b1684e7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3127106177461999182, guid: 64b4692cf6bbf03458db961b6b1684e7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -554,7 +559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &617075593 stripped
 Transform:
@@ -867,6 +872,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 769
   _duration: 8
+  _maxRandomAngle: 0
 --- !u!114 &887832111
 MonoBehaviour:
   m_ObjectHideFlags: 0
