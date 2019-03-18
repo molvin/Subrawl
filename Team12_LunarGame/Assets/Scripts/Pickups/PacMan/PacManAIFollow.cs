@@ -45,7 +45,7 @@ public class PacManAIFollow : MonoBehaviour{
     {
         // If AI is dodged constantly it will "time out" and die after 15 seconds.
         Destroy(this.gameObject, 15f);
-        StartCoroutine(timeOut(10));
+        StartCoroutine(TimeOut(10));
 
         player = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player2");
@@ -69,10 +69,11 @@ public class PacManAIFollow : MonoBehaviour{
     //    }
     //}
 
-    IEnumerator timeOut(float seconds)
+    IEnumerator TimeOut(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         animator.SetBool("Dying", true);
+        print("HELP");
     }
 
     void Update()
