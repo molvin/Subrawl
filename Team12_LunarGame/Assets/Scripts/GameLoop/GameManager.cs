@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     [SerializeField] private GameObject _playerPrefab;
+    [SerializeField] private Sprite _player1Sprite;
+    [SerializeField] private Sprite _player2Sprite;
     [SerializeField] private int _playerMaxLives = 5;
     [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;
     
@@ -61,8 +63,9 @@ public class GameManager : MonoBehaviour
         playerValues.Id = id;
         playerValues.Invincible = true;
         instance.GetComponent<PlayerMovement>().RewiredId = id;
+        instance.GetComponentInChildren<SpriteRenderer>().sprite = id == 0 ? _player1Sprite : _player2Sprite;
         //Temp
-      //  instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
+        //  instance.GetComponentInChildren<SpriteRenderer>().color = id == 0 ? Color.blue : Color.red;
     }
     public static Vector2 GetRandomSpawnPoint()
     {

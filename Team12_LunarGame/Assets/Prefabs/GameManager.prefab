@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 5973473940341684424, guid: ea11e8fb1fee8ae4984b5d53d4cabf82,
     type: 3}
+  _player1Sprite: {fileID: 21300028, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  _player2Sprite: {fileID: 21300030, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
   _playerMaxLives: 5
   _spawnPositionEdgeBuffer: 50
 --- !u!1001 &6217525470509989249
@@ -180,16 +182,6 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1145725328865384124, guid: 077e305c4b8bae946a0c974a66e12a93,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1145725328865384124, guid: 077e305c4b8bae946a0c974a66e12a93,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1145725328616990214, guid: 077e305c4b8bae946a0c974a66e12a93,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -206,6 +198,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1145725329454409517, guid: 077e305c4b8bae946a0c974a66e12a93,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145725328865384124, guid: 077e305c4b8bae946a0c974a66e12a93,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145725328865384124, guid: 077e305c4b8bae946a0c974a66e12a93,
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 0
