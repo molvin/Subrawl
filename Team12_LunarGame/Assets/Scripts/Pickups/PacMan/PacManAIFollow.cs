@@ -9,6 +9,8 @@ public class PacManAIFollow : MonoBehaviour{
     public GameObject player2;
     public float speed;
     public Transform target;
+    public Animator animator;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
@@ -43,11 +45,13 @@ public class PacManAIFollow : MonoBehaviour{
     {
         // If AI is dodged constantly it will "time out" and die after 15 seconds.
         Destroy(this.gameObject, 15f);
+        StartCoroutine(timeOut(10));
 
-        
         player = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player2");
-        
+
+       
+
         PickupManager manager = FindObjectOfType<PickupManager>();
         int currentPickupOwner = manager.GetCurrentPickupOwner();
         if(currentPickupOwner == 0)
@@ -64,6 +68,12 @@ public class PacManAIFollow : MonoBehaviour{
     //     target = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>();
     //    }
     //}
+
+    IEnumerator timeOut(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        animator.SetBool("Dying", true);
+    }
 
     void Update()
     {

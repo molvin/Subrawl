@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3007455384558491999}
   - component: {fileID: 1081340281612437946}
   - component: {fileID: 2790306542409547319}
+  - component: {fileID: 441886712116555315}
+  - component: {fileID: 6491972367840686194}
   m_Layer: 2
   m_Name: PacManAI
   m_TagString: Untagged
@@ -98,6 +100,7 @@ MonoBehaviour:
   player2: {fileID: 0}
   speed: 5
   target: {fileID: 0}
+  animator: {fileID: 441886712116555315}
 --- !u!58 &1081340281612437946
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,3 +138,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &441886712116555315
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127106177461999179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fac9c04f5a8d676449ca449610f9f2b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &6491972367840686194
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3127106177461999179}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 456b052794e61ee4293635a6af72384e, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
