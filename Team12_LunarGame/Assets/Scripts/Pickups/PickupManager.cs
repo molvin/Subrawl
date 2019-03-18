@@ -22,6 +22,7 @@ public class PickupManager : MonoBehaviour
     
     private float _timeOfLastPickup;
     private int _currentPickupOwner;
+    public Pickup[] Pickups => _pickups;
     
     private void Start()
     {
@@ -38,7 +39,7 @@ public class PickupManager : MonoBehaviour
         int index = Random.Range(0, _pickups.Length);      
         Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity).OnPickup += id => OnPickUp(id, _pickups[index]);       
     }
-    private void OnPickUp(int playerId, Pickup pickup)
+    public void OnPickUp(int playerId, Pickup pickup)
     {
         _currentPickupOwner = playerId;
         Debug.Log("Activated: " + pickup.Name);
