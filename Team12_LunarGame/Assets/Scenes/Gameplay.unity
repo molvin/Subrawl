@@ -2935,6 +2935,14 @@ PrefabInstance:
       propertyPath: _paddleXDistanceFromCenter
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 96847363, guid: 06505a73ee1abb54f8be4c0bbb94b736, type: 3}
+      propertyPath: _maxRandomAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 96847363, guid: 06505a73ee1abb54f8be4c0bbb94b736, type: 3}
+      propertyPath: _duration
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 96847364, guid: 06505a73ee1abb54f8be4c0bbb94b736, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 4

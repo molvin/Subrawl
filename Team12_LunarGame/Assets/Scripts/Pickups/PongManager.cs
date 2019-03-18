@@ -11,6 +11,7 @@ public class PongManager : MonoBehaviour
     [SerializeField] private float _paddleXDistanceFromCenter = 10.0f;
     [SerializeField] private LayerMask _ballCollisionLayers;
     [SerializeField] private float _duration = 8f;
+    [SerializeField] private float _maxRandomAngle;
     
     private readonly List<GameObject> _paddles = new List<GameObject>();
     private GameObject _ball;
@@ -40,6 +41,8 @@ public class PongManager : MonoBehaviour
         if (hit.collider != null)
         {
             _ballVelocity = Vector2.Reflect(_ballVelocity, hit.normal);
+            if(_paddles.Contains(hit.collider.gameObject))
+                _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(_maxRandomAngle, _maxRandomAngle)) * _ballVelocity;
             PlayerValues player = hit.collider.GetComponent<PlayerValues>();
             if(player != null)
                 player.Die();
