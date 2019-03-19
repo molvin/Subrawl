@@ -18,6 +18,11 @@ public class PlayerValues : MonoBehaviour
             _players[Id] = this;
         else
             _players.Add(Id, this);
+
+        if (Invincible)
+        {
+            //Start animation
+        }
     }
 
     private void Update()
@@ -30,7 +35,10 @@ public class PlayerValues : MonoBehaviour
 
         _currentInvincibilityTime += Time.deltaTime;
         if (_currentInvincibilityTime > _invincibilityDuration)
+        {
+            //Stop animation
             Invincible = false;
+        }
     }
     
     public void Die()

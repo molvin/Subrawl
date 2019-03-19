@@ -73,8 +73,10 @@ public class PacManAIFollow : MonoBehaviour{
 
     void Update()
     {
-        if(target != null)
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if (target == null)
+            return;
+            
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         Vector3 vectorToTarget = target.transform.position - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
