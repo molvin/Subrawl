@@ -18,8 +18,8 @@ public class Bubble_Hazard : MonoBehaviour
 
     private void Start()
     {
-        player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
-        player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
+        //player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
+        //player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
         Coral = GameObject.FindGameObjectWithTag("Coral");
         Destroy(gameObject, TimeToDeath);
     }
