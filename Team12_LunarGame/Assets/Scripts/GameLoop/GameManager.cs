@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     }
     private void SpawnPlayer(int id)
     {
+
         GameObject instance = Instantiate(_playerPrefab, GetRandomSpawnPoint(), Quaternion.identity);
         PlayerValues playerValues = instance.GetComponent<PlayerValues>();
         playerValues.Id = id;

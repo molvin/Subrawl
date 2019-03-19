@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private const float SkinWidth = 0.03f;
     private Player _rewiredPlayer;
     private int _id;
+    public Animator AnimationControl;
     
     private void Start()
     {
@@ -68,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerMovement otherPlayer = hit.collider.GetComponent<PlayerMovement>();
             if (otherPlayer != null)
                 HandlePlayerCollision(hit, otherPlayer);
+                
         }
         _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
         transform.position += (Vector3) _velocity * Time.deltaTime;
@@ -87,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void HandlePlayerCollision(RaycastHit2D hit, PlayerMovement otherPlayer)
     {
+        AnimationControl.SetBool("Knock", true);
         Debug.DrawRay(hit.point, hit.normal * 10.0f, Color.blue, 5f);
         _velocity = hit.normal * _terminalVelocity;
         Debug.DrawRay(hit.point, -hit.normal * 10.0f, Color.red, 5f);
