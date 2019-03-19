@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Rewired;
+using UnityEngine;
 
 public class Bubble_Hazard : MonoBehaviour
 {
@@ -111,7 +112,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Overlap)
         {
-            if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
+            if ((ReInput.players.GetPlayer(0).GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter = Meter + 1;
             }
@@ -119,7 +120,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Overlap2)
         {
-            if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
+            if ((ReInput.players.GetPlayer(1).GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter2 = Meter2 + 1;
             }
