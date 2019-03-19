@@ -6,6 +6,7 @@ public class PlayerValues : MonoBehaviour
 {
     public int Id;
     public bool Invincible;
+    public Animator AnimationController;
 
     [SerializeField] private float _invincibilityDuration;
     private float _currentInvincibilityTime;
@@ -14,6 +15,12 @@ public class PlayerValues : MonoBehaviour
 
     private void Start()
     {
+
+        if (Invincible)
+        {
+            AnimationController.SetBool("Damaged", true);
+        }
+
         if (_players.ContainsKey(Id))
             _players[Id] = this;
         else
@@ -21,7 +28,7 @@ public class PlayerValues : MonoBehaviour
 
         if (Invincible)
         {
-            //Start animation
+            AnimationController.SetBool("Damaged", true);
         }
     }
 
@@ -32,7 +39,7 @@ public class PlayerValues : MonoBehaviour
 
         if (!Invincible)
             return;
-
+        
         _currentInvincibilityTime += Time.deltaTime;
         if (_currentInvincibilityTime > _invincibilityDuration)
         {

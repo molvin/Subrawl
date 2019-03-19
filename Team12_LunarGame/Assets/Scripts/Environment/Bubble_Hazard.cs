@@ -83,10 +83,21 @@ public class Bubble_Hazard : MonoBehaviour
     public void AnimationEvent()
     {
          Destroy(transform.root.gameObject);
+        if (Overlap)
+        {
+            PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+        }
+
+        if (Overlap2)
+        {
+            PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+        }
     }
 
     void Update()
     {
+        print(Meter);
+        print(Meter2);
         parent.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
 
         if (Overlap)
@@ -164,7 +175,6 @@ public class Bubble_Hazard : MonoBehaviour
         if (Meter >= 20)
         {
             animatorbubble.SetBool("Destroyed", true);
-            PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
             Meter = 0;
             print("You broke free");
         }
@@ -172,7 +182,6 @@ public class Bubble_Hazard : MonoBehaviour
         if (Meter2 >= 20)
         {
             animatorbubble.SetBool("Destroyed", true);
-            PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
             Meter2 = 0;
             print("You broke free");
         }

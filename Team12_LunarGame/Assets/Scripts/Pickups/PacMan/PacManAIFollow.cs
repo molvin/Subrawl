@@ -49,7 +49,7 @@ public class PacManAIFollow : MonoBehaviour{
 
         PickupManager manager = FindObjectOfType<PickupManager>();
         int currentPickupOwner = manager.GetCurrentPickupOwner();
-        if(currentPickupOwner == 0)
+        if (currentPickupOwner == 0)
             target = PlayerValues.GetPlayer(1).transform;
         else
             target = PlayerValues.GetPlayer(0).transform;
