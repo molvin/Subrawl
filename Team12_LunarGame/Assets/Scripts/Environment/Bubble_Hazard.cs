@@ -18,8 +18,8 @@ public class Bubble_Hazard : MonoBehaviour
 
     private void Start()
     {
-        //player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
-        //player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
+        player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
+        player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
         Coral = GameObject.FindGameObjectWithTag("Coral");
         Destroy(gameObject, TimeToDeath);
     }
@@ -48,10 +48,11 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (other.tag == "Coral")
         {
-            Destroy(transform.root.gameObject);
 
             if (Overlap)
             {
+                print("Overlap");
+                animatorbubble.SetBool("Destroyed", true);
                 Meter = 0;
                 PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
                 PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
@@ -59,6 +60,8 @@ public class Bubble_Hazard : MonoBehaviour
 
             if (Overlap2)
             {
+                print("Overlap");
+                animatorbubble.SetBool("Destroyed", true);
                 Meter2 = 0;
                 PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
                 PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
@@ -74,6 +77,11 @@ public class Bubble_Hazard : MonoBehaviour
             Overlap = false;
         }
 
+    }
+
+    public void AnimationEvent()
+    {
+         Destroy(transform.root.gameObject);
     }
 
     void Update()
@@ -154,20 +162,18 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Meter >= 20)
         {
-            Destroy(transform.root.gameObject);
+            animatorbubble.SetBool("Destroyed", true);
             PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
             Meter = 0;
             print("You broke free");
-            animatorbubble.SetBool("BubbleBroken", false);
         }
 
         if (Meter2 >= 20)
         {
-            Destroy(transform.root.gameObject);
+            animatorbubble.SetBool("Destroyed", true);
             PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
             Meter2 = 0;
             print("You broke free");
-            animatorbubble.SetBool("BubbleBroken", false);
         }
 
 
