@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: 1e65da13ca187f340a5cac6674053264
+guid: a6a99529a16a2d84dae58d30f754372c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Bubbles1_spritesheet
-    21300002: Bubbles1_spritesheet_0
-    21300004: Bubbles1_spritesheet_1
-    21300006: Bubbles1_spritesheet_2
-    21300008: Bubbles1_spritesheet_3
-    21300010: Bubbles1_spritesheet_4
-    21300012: Bubbles1_spritesheet_5
-    21300014: Bubbles1_spritesheet_6
-    21300016: Bubbles1_spritesheet_7
-    21300018: Bubbles1_spritesheet_8
-    21300020: Bubbles1_spritesheet_9
+    21300000: Heart_animation sprite sheet_0
+    21300002: Heart_animation sprite sheet_1
+    21300004: Heart_animation sprite sheet_2
+    21300006: Heart_animation sprite sheet_3
+    21300008: Heart_animation sprite sheet_4
+    21300010: Heart_animation sprite sheet_5
+    21300012: Heart_animation sprite sheet_6
+    21300014: Heart_animation sprite sheet_7
+    21300016: Heart_animation sprite sheet_8
   externalObjects: {}
-  serializedVersion: 9
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -95,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_0
+      name: Heart_animation sprite sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -109,19 +107,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b4fbbcf1a757a74a8ab625eb350fb6e
+      spriteID: 6110a74297d02184baaa9c7162da59c3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_1
+      name: Heart_animation sprite sheet_1
       rect:
         serializedVersion: 2
-        x: 45
+        x: 11
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,19 +127,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5cbae4f65ebcfa40a9086593770e83e
+      spriteID: 9bafa70636d1ab1479778cead9bbae96
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_2
+      name: Heart_animation sprite sheet_2
       rect:
         serializedVersion: 2
-        x: 90
+        x: 22
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,19 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc241a1664d81044a6a9f3d00238660
+      spriteID: 6b2a0914e20ca5d41933cb75adb59013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_3
+      name: Heart_animation sprite sheet_3
       rect:
         serializedVersion: 2
-        x: 135
+        x: 33
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,19 +167,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c763afe62503805448261a5057e52f5d
+      spriteID: 9cafeba804f1e4f4ea3ca30474943138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_4
+      name: Heart_animation sprite sheet_4
       rect:
         serializedVersion: 2
-        x: 180
+        x: 44
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 871c5cce84cc0d9408840e74051d1fa9
+      spriteID: 9a74db5dcfe31c6449bef1f84b1347ec
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_5
+      name: Heart_animation sprite sheet_5
       rect:
         serializedVersion: 2
-        x: 225
+        x: 55
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,19 +207,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cb72c256852ede4daa8d4632f131d2d
+      spriteID: 2f30983038d19864f9aef03e0b7bfaaf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_6
+      name: Heart_animation sprite sheet_6
       rect:
         serializedVersion: 2
-        x: 270
+        x: 66
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,19 +227,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bff41a8f72d7c504988fd58f7314ccd7
+      spriteID: 892ef631aa91cbd4f89da884c348de6d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_7
+      name: Heart_animation sprite sheet_7
       rect:
         serializedVersion: 2
-        x: 315
+        x: 77
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,19 +247,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f79451ea7ccda9e48802f8bbefa90ee9
+      spriteID: 60b4e106d477dd044846af1c42ff4b22
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bubbles1_spritesheet_8
+      name: Heart_animation sprite sheet_8
       rect:
         serializedVersion: 2
-        x: 360
+        x: 88
         y: 0
-        width: 45
-        height: 183
+        width: 11
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -269,27 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0637f8c6b4e15d145922545f3d8e0adf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bubbles1_spritesheet_9
-      rect:
-        serializedVersion: 2
-        x: 405
-        y: 0
-        width: 45
-        height: 183
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acf4480256d86c4438e0782b6f83fe5b
+      spriteID: 766b0ac95395fb2428ff04dc9244df36
       vertices: []
       indices: 
       edges: []
@@ -297,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3b202706e037de9438577b6bc8c15739
+    spriteID: 9fa91967b1c2bbe438e2273594785dcd
     vertices: []
     indices: 
     edges: []
