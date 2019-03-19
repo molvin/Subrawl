@@ -14,6 +14,7 @@ public class Bubble_Hazard : MonoBehaviour
     public Spawner Spawner;
     public float TimeToDeath;
     public float KillY;
+    public Animator animatorbubble;
 
     private void Start()
     {
@@ -47,10 +48,11 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (other.tag == "Coral")
         {
-            Destroy(transform.root.gameObject);
 
             if (Overlap)
             {
+                print("Overlap");
+                animatorbubble.SetBool("Destroyed", true);
                 Meter = 0;
                 PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
                 PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
@@ -58,6 +60,8 @@ public class Bubble_Hazard : MonoBehaviour
 
             if (Overlap2)
             {
+                print("Overlap");
+                animatorbubble.SetBool("Destroyed", true);
                 Meter2 = 0;
                 PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
                 PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
@@ -73,6 +77,11 @@ public class Bubble_Hazard : MonoBehaviour
             Overlap = false;
         }
 
+    }
+
+    public void AnimationEvent()
+    {
+         Destroy(transform.root.gameObject);
     }
 
     void Update()
@@ -105,7 +114,6 @@ public class Bubble_Hazard : MonoBehaviour
             if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter = Meter + 1;
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
             }
         }
 
@@ -114,13 +122,47 @@ public class Bubble_Hazard : MonoBehaviour
             if ((Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
             {
                 Meter2 = Meter2 + 1;
-                GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, Transparency - .1f);
             }
         }
 
+        if (Meter >= 5)
+        {
+            animatorbubble.SetBool("BubbleHurt", true);
+        }
+
+        if (Meter >= 10)
+        {
+            animatorbubble.SetBool("BubbleHurt", false);
+            animatorbubble.SetBool("BubbleBreaking", true);
+        }
+
+        if (Meter >= 15)
+        {
+            animatorbubble.SetBool("BubbleBreaking", false);
+            animatorbubble.SetBool("BubbleBroken", true);
+        }
+
+        if (Meter2 >= 5)
+        {
+            animatorbubble.SetBool("BubbleHurt", true);
+        }
+
+        if (Meter2 >= 10)
+        {
+            animatorbubble.SetBool("BubbleHurt", false);
+            animatorbubble.SetBool("BubbleBreaking", true);
+        }
+
+        if (Meter2 >= 15)
+        {
+            animatorbubble.SetBool("BubbleBreaking", false);
+            animatorbubble.SetBool("BubbleBroken", true);
+        }
+
+
         if (Meter >= 20)
         {
-            Destroy(transform.root.gameObject);
+            animatorbubble.SetBool("Destroyed", true);
             PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
             Meter = 0;
             print("You broke free");
@@ -128,7 +170,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Meter2 >= 20)
         {
-            Destroy(transform.root.gameObject);
+            animatorbubble.SetBool("Destroyed", true);
             PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
             Meter2 = 0;
             print("You broke free");
