@@ -22,3 +22,12 @@ public struct Tuple<T1, T2>
     public T1 First;
     public T2 Second;
 }
+
+public static class Extensions
+{
+    public static Color WithAlpha(this Color color, float alpha)
+    {
+        color.a = alpha;
+        return color;
+    }
+}

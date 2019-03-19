@@ -655,6 +655,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawSpawnBox: 0
+  _drawPlayerSpawns: 1
   _debugColor: {r: 1, g: 0.18762848, b: 0, a: 0.4745098}
 --- !u!1 &157364905
 GameObject:
@@ -756,8 +757,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
         type: 3}
+      propertyPath: _playerSpawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
       propertyPath: _spawnPositionEdgeBuffer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
+      propertyPath: _playerSpawnPoints.Array.data[0].x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
+      propertyPath: _playerSpawnPoints.Array.data[0].y
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
+      propertyPath: _playerSpawnPoints.Array.data[1].x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
+      propertyPath: _playerSpawnPoints.Array.data[1].y
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6462517464662443194, guid: 35e51969f2318594581b97ed96c2d840,
         type: 3}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = System.Random;
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite _player1Sprite;
     [SerializeField] private Sprite _player2Sprite;
     [SerializeField] private int _playerMaxLives = 5;
+    [SerializeField] private Vector2[] _playerSpawnPoints;
     [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;
+    [SerializeField] private float _respawnTime = 2.0f;
     
     public static readonly Dictionary<int, int> PlayerLives = new Dictionary<int, int>();
     public static Action OnLivesChanged;
@@ -18,16 +21,13 @@ public class GameManager : MonoBehaviour
     public static Action<int> OnVictory;
     public static int MaxLives => _instance._playerMaxLives;
     public float SpawnPositionEdgeBuffer => _spawnPositionEdgeBuffer;
+    public Vector2[] PlayerSpawnPoints => _playerSpawnPoints;
 
     private bool _gameOver;
     
     private void Awake()
     {
-        if (_instance == null)
-            _instance = this;
-        else
-            return;
-
+        _instance = this;
         ResetLives();
 
         if (FindObjectOfType<PlayerValues>() == null)
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
         PlayerLives[deadPlayerId]--;
         if (PlayerLives[deadPlayerId] > 0)
-            _instance.SpawnPlayer(deadPlayerId);
+            _instance.StartCoroutine(_instance.SpawnRoutine(deadPlayerId));
 
         if (!_instance._gameOver && PlayerLives[deadPlayerId] == 0)
         {
@@ -56,10 +56,16 @@ public class GameManager : MonoBehaviour
         OnLifeUpdate?.Invoke(deadPlayerId, PlayerLives[deadPlayerId]);
         
     }
+
+    private IEnumerator SpawnRoutine(int id)
+    {
+        yield return new WaitForSeconds(_respawnTime);
+        SpawnPlayer(id);
+    }
     private void SpawnPlayer(int id)
     {
 
-        GameObject instance = Instantiate(_playerPrefab, GetRandomSpawnPoint(), Quaternion.identity);
+        GameObject instance = Instantiate(_playerPrefab, PlayerSpawnPoints.Length > id ? PlayerSpawnPoints[id] : GetRandomSpawnPoint(), Quaternion.identity);
         PlayerValues playerValues = instance.GetComponent<PlayerValues>();
         playerValues.Id = id;
         playerValues.Invincible = true;

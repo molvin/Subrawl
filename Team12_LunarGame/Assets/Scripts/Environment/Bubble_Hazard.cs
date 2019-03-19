@@ -22,28 +22,41 @@ public class Bubble_Hazard : MonoBehaviour
         //player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
         //player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
         Coral = GameObject.FindGameObjectWithTag("Coral");
-        Destroy(gameObject, TimeToDeath);
+        Destroy(transform.root.gameObject, TimeToDeath);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
 
         PlayerValues playerValues = other.gameObject.GetComponent<PlayerValues>();
+
+        
+        
+        
         if (playerValues != null)
         {     
+            if (Overlap && playerValues.Id == 1)
+            {
+                PopBubble(true);
+                return;
+            }
+
+            if (Overlap2 && playerValues.Id == 0)
+            {
+                PopBubble(true);
+                return;
+            }
             Debug.Log("Bubble bobble");
+            playerValues.GetComponent<PlayerMovement>().enabled = false;
             if (playerValues.Id == 0)
             {
-                playerValues.GetComponent<PlayerMovement>().enabled = false;
-                playerValues.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
                 Overlap = true;
-            }
-    
+                playerValues.OnDeath += () => PopBubble(true);
+            } 
             if (playerValues.Id == 1)
             {
-                playerValues.GetComponent<PlayerMovement>().enabled = false;
-                playerValues.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
                 Overlap2 = true;
+                playerValues.OnDeath += () => PopBubble(true);
             }
         }
 
@@ -52,20 +65,30 @@ public class Bubble_Hazard : MonoBehaviour
 
             if (Overlap)
             {
-                print("Overlap");
-                animatorbubble.SetBool("Destroyed", true);
-                Meter = 0;
-                PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
-                PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+                PopBubble(true);
+//                print("Overlap");
+//                animatorbubble.SetBool("Destroyed", true);
+//                Meter = 0;
+//                if (PlayerValues.GetPlayer(0) != null)
+//                {
+//                    
+//                    PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
+//                    PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+//                }
+
             }
 
             if (Overlap2)
             {
-                print("Overlap");
-                animatorbubble.SetBool("Destroyed", true);
-                Meter2 = 0;
-                PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
-                PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+                PopBubble(true);
+//                print("Overlap");
+//                animatorbubble.SetBool("Destroyed", true);
+//                Meter2 = 0;
+//                if (PlayerValues.GetPlayer(1) != null)
+//                {
+//                    PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
+//                    PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+//                }
             }
 
         }
@@ -73,31 +96,31 @@ public class Bubble_Hazard : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            Overlap = false;
-        }
+//        if (other.tag == "Player")
+//        {
+//            Overlap = false;
+//        }
 
     }
 
     public void AnimationEvent()
     {
-         Destroy(transform.root.gameObject);
-        if (Overlap)
-        {
-            PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
-        }
-
-        if (Overlap2)
-        {
-            PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
-        }
+//         Destroy(transform.root.gameObject);
+//        if (Overlap)
+//        {
+//            PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+//        }
+//
+//        if (Overlap2)
+//        {
+//            PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+//        }
     }
 
     void Update()
     {
-        print(Meter);
-        print(Meter2);
+        
+        //Movement
         parent.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
 
         if (Overlap)
@@ -105,22 +128,22 @@ public class Bubble_Hazard : MonoBehaviour
             PlayerValues.GetPlayer(0).transform.position = gameObject.transform.position;
             if (PlayerValues.GetPlayer(0).transform.position.y > KillY)
             {
-                Destroy(gameObject);
-                PlayerValues.GetPlayer(0).GetComponent<PlayerValues>().Die();
+                PopBubble(true);
+                return;
             }
         }
-
-
         if (Overlap2)
         {
             PlayerValues.GetPlayer(1).transform.position = gameObject.transform.position;
             if (PlayerValues.GetPlayer(1).transform.position.y > KillY)
             {
-                Destroy(gameObject);
-                PlayerValues.GetPlayer(1).GetComponent<PlayerValues>().Die();
+                PopBubble(true);
+                return;
             }
         }
-
+        
+        
+        //Breaking bubble
         if (Overlap)
         {
             if ((ReInput.players.GetPlayer(0).GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")))
@@ -174,14 +197,16 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Meter >= 20)
         {
-            animatorbubble.SetBool("Destroyed", true);
+            //animatorbubble.SetBool("Destroyed", true);
+            PopBubble(false);
             Meter = 0;
             print("You broke free");
         }
 
         if (Meter2 >= 20)
         {
-            animatorbubble.SetBool("Destroyed", true);
+            //animatorbubble.SetBool("Destroyed", true);
+            PopBubble(false);
             Meter2 = 0;
             print("You broke free");
         }
@@ -189,6 +214,33 @@ public class Bubble_Hazard : MonoBehaviour
 
     }
 
-
-
+    void PopBubble(bool killPlayer)
+    {
+        if (killPlayer)
+        {
+            if (Overlap)
+            {
+                PlayerValues.GetPlayer(0)?.Die();
+            }
+            if (Overlap2)
+            {
+                PlayerValues.GetPlayer(1)?.Die();
+            }
+        }
+        else
+        {
+            if (Overlap && PlayerValues.GetPlayer(0) != null)
+            {
+                PlayerValues.GetPlayer(0).GetComponent<PlayerMovement>().enabled = true;
+            }
+            if (Overlap2 && PlayerValues.GetPlayer(1) != null)
+            {
+                PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
+            }
+        }     
+        
+        animatorbubble.SetBool("Destroyed", true);
+        Destroy(this);
+        Destroy(transform.root.gameObject, 5f);
+    }
 }

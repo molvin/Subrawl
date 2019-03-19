@@ -41,12 +41,13 @@ public class HomingMissileManager : MonoBehaviour
                 missileIdToDestroy.Add(activeMissiles[i].SpawningID);
             }
             Transform targetTransform = PlayerValues.GetPlayer(activeMissiles[i].TargetID)?.transform;
-            if (targetTransform == null)
-                continue;
-            Vector2 targetDir = targetTransform.position - activeMissiles[i].MissileObj.transform.position;
-            Vector2 velocityDelta = Vector2.zero; 
-            activeMissiles[i].Velocity = Vector2.SmoothDamp(activeMissiles[i].Velocity,
-                (targetDir).normalized * missileSpeed, ref velocityDelta, velocitySmoothTime);
+            if (targetTransform != null)
+            {
+                Vector2 targetDir = targetTransform.position - activeMissiles[i].MissileObj.transform.position;
+                Vector2 velocityDelta = Vector2.zero; 
+                activeMissiles[i].Velocity = Vector2.SmoothDamp(activeMissiles[i].Velocity,
+                    (targetDir).normalized * missileSpeed, ref velocityDelta, velocitySmoothTime);             
+            }
             activeMissiles[i].MissileObj.transform.position += (Vector3)activeMissiles[i].Velocity * Time.deltaTime;
 
             RaycastHit2D hit = Physics2D.CircleCast(activeMissiles[i].MissileObj.transform.position, activeMissiles[i].Collider.radius, activeMissiles[i].Velocity.normalized, activeMissiles[i].Velocity.magnitude * Time.deltaTime, collisionLayers);

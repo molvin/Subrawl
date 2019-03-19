@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class PlayerValues : MonoBehaviour
     
     private static readonly Dictionary<int, PlayerValues> _players = new Dictionary<int, PlayerValues>();
 
+    public Action OnDeath;
+    
     private void Start()
     {
 
@@ -44,6 +47,7 @@ public class PlayerValues : MonoBehaviour
         if (_currentInvincibilityTime > _invincibilityDuration)
         {
             //Stop animation
+            AnimationController.SetBool("Damaged", false);
             Invincible = false;
         }
     }
@@ -55,6 +59,7 @@ public class PlayerValues : MonoBehaviour
         GameManager.HandlePlayerDeath(Id);
         _players.Remove(Id);
         Destroy(gameObject);
+        OnDeath?.Invoke();
     }
     public static PlayerValues GetPlayer(int id)
     {

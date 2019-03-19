@@ -9,6 +9,7 @@ public class PongManager : MonoBehaviour
     [SerializeField] private GameObject _ballPrefab;
     [SerializeField] private float _ballSpeed = 15.0f;
     [SerializeField] private float _paddleXDistanceFromCenter = 10.0f;
+    [SerializeField] private float _paddleStartY;
     [SerializeField] private LayerMask _ballCollisionLayers;
     [SerializeField] private float _duration = 8f;
     [SerializeField] private float _maxRandomAngle;
@@ -24,11 +25,14 @@ public class PongManager : MonoBehaviour
     {
         ResetPong();
 
-        _paddles.Add(Instantiate(_paddlePrefab, new Vector3(_paddleXDistanceFromCenter, 0.0f, 0.0f), Quaternion.identity));
-        _paddles.Add(Instantiate(_paddlePrefab, new Vector3(-_paddleXDistanceFromCenter, 0.0f, 0.0f), Quaternion.identity));
+        _paddles.Add(Instantiate(_paddlePrefab, new Vector3(_paddleXDistanceFromCenter, _paddleStartY, 0.0f), Quaternion.identity));
+        _paddles.Add(Instantiate(_paddlePrefab, new Vector3(-_paddleXDistanceFromCenter, _paddleStartY, 0.0f), Quaternion.identity));
         _ball = Instantiate(_ballPrefab, Vector3.zero, Quaternion.identity);
         _ballRadius = _ball.GetComponent<CircleCollider2D>().radius;
-        _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(-45, 45)) * Vector2.right * _ballSpeed;
+        int ballStartOwner = Random.value > 0.5f ? 0 : 1;
+        Vector2 directionAwayFromOwner = Vector2.right * (ballStartOwner == 0 ? -1 : 1);
+        _ball.transform.position = (Vector2)_paddles[ballStartOwner].transform.position + directionAwayFromOwner * _ballRadius * 2f;
+        _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(-45, 45)) * directionAwayFromOwner  * _ballSpeed;
         _active = true;
         _startTime = Time.time;
     }
@@ -40,12 +44,15 @@ public class PongManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.CircleCast(_ball.transform.position, _ballRadius, _ballVelocity.normalized, _ballVelocity.magnitude * Time.deltaTime, _ballCollisionLayers);
         if (hit.collider != null)
         {
-            _ballVelocity = Vector2.Reflect(_ballVelocity, hit.normal);
             if(_paddles.Contains(hit.collider.gameObject))
                 _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(_maxRandomAngle, _maxRandomAngle)) * _ballVelocity;
+           
             PlayerValues player = hit.collider.GetComponent<PlayerValues>();
             if(player != null)
                 player.Die();
+            else
+                _ballVelocity = Vector2.Reflect(_ballVelocity, hit.normal);
+
         }
 
         _ball.transform.position += (Vector3) _ballVelocity * Time.deltaTime;
