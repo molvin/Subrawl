@@ -10,10 +10,10 @@ public class PacManAIFollow : MonoBehaviour{
     public float speed;
     public Transform target;
     public Animator animator;
+    public float rotationSpeed;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         PlayerValues player = other.gameObject.GetComponent<PlayerValues>();
         if (player != null)
         {
@@ -21,21 +21,18 @@ public class PacManAIFollow : MonoBehaviour{
             Destroy(gameObject, 0.5f);
         }
 
-//        if (other.gameObject.name == "Player 1")
-//        {
-//            //player.GetComponent<PlayerHealth>().TakeDamage();
-//            player.GetComponent<PlayerValues>().Die();
-//            Destroy(this.gameObject, 0.5f);
-//        }
-//
-//        else if (other.gameObject.name == "Player 2")
-//        {
-//            //player2.GetComponent<PlayerHealth>().TakeDamage();
-//            player2.GetComponent<PlayerValues>().Die();
-//
-//            Destroy(this.gameObject, 0.5f);
-//        }
+        //if (other.gameObject.name == "Player 1")
+        //{
+        //    player.GetComponent<PlayerValues>().Die();
+        //    Destroy(this.gameObject, 0.5f);
+        //}
 
+        //else if (other.gameObject.name == "Player 2")
+        //{
+        //    player2.GetComponent<PlayerValues>().Die();
+
+        //    Destroy(this.gameObject, 0.5f);
+        //}
 
     }
 
@@ -49,8 +46,6 @@ public class PacManAIFollow : MonoBehaviour{
 
         player = GameObject.FindGameObjectWithTag("Player");
         player2 = GameObject.FindGameObjectWithTag("Player2");
-
-       
 
         PickupManager manager = FindObjectOfType<PickupManager>();
         int currentPickupOwner = manager.GetCurrentPickupOwner();
@@ -80,7 +75,12 @@ public class PacManAIFollow : MonoBehaviour{
     {
         if(target != null)
             transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        
+
+        Vector3 vectorToTarget = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+        Quaternion qt = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, qt, Time.deltaTime * rotationSpeed);
+
     }
 
 }

@@ -299,8 +299,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69887127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.176706, y: -3.47, z: -0.8125}
-  m_LocalScale: {x: 8.10565, y: 8.10565, z: 8.10565}
+  m_LocalPosition: {x: 1.176706, y: -2.8500001, z: -0.8125}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children: []
   m_Father: {fileID: 907094522}
   m_RootOrder: 2
@@ -3273,6 +3273,11 @@ MonoBehaviour:
     type: 3}
   missileCount: 5
   missileSpeed: 10
+  velocitySmoothTime: 0.1
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  MissileLifeTime: 2
 --- !u!1 &811510456
 GameObject:
   m_ObjectHideFlags: 0
@@ -3501,8 +3506,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993710556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.72, y: -3.4699998, z: -0.8125}
-  m_LocalScale: {x: 8.10565, y: 8.10565, z: 8.10565}
+  m_LocalPosition: {x: -9.72, y: -2.85, z: -0.8125}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children: []
   m_Father: {fileID: 907094522}
   m_RootOrder: 3
@@ -4309,8 +4314,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266901869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.4, y: -3.4699998, z: -0.8125}
-  m_LocalScale: {x: 8.10565, y: 8.10565, z: 8.10565}
+  m_LocalPosition: {x: 11.4, y: -2.85, z: -0.8125}
+  m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children: []
   m_Father: {fileID: 907094522}
   m_RootOrder: 1
