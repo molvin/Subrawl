@@ -50,7 +50,12 @@ public class PongManager : MonoBehaviour
            
             PlayerValues player = hit.collider.GetComponent<PlayerValues>();
             if(player != null)
+            {
                 player.Die();
+                ResetPong();
+            }
+                
+
             else
                 _ballVelocity = Vector2.Reflect(_ballVelocity, hit.normal);
 

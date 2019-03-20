@@ -7,6 +7,7 @@ public class PlayerValues : MonoBehaviour
 {
     public int Id;
     public bool Invincible;
+    public bool IsPlayerDead = false;
     public Animator AnimationController;
 
     [SerializeField] private float _invincibilityDuration;
@@ -33,6 +34,7 @@ public class PlayerValues : MonoBehaviour
         {
             AnimationController.SetBool("Damaged", true);
         }
+        IsPlayerDead = false;
     }
 
     private void Update()
@@ -57,6 +59,7 @@ public class PlayerValues : MonoBehaviour
         if (Invincible) 
             return;
         GameManager.HandlePlayerDeath(Id, transform.position);
+        IsPlayerDead = true;
         _players.Remove(Id);
         Destroy(gameObject);
         OnDeath?.Invoke();
