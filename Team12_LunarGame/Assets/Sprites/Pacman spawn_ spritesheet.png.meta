@@ -1,10 +1,14 @@
 fileFormatVersion: 2
-guid: 1f26209f14062ef4ca61894ff7bf1d84
+guid: fced03db6b85592428b863433c22c5f7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: redglow_spritesheet_0
-    21300002: redglow_spritesheet_1
-    21300004: redglow_spritesheet_2
+    21300000: Pacman spawn_ spritesheet_0
+    21300002: Pacman spawn_ spritesheet_1
+    21300004: Pacman spawn_ spritesheet_2
+    21300006: Pacman spawn_ spritesheet_3
+    21300008: Pacman spawn_ spritesheet_4
+    21300010: Pacman spawn_ spritesheet_5
+    21300012: Pacman spawn_ spritesheet_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -87,13 +91,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: redglow_spritesheet_0
+      name: Pacman spawn_ spritesheet_0
       rect:
         serializedVersion: 2
-        x: 82
+        x: 0
         y: 0
-        width: 82
-        height: 81
+        width: 147
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,19 +105,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b16bbcd8e0f429b4aabc7e14d6ffa590
+      spriteID: cf652b31ad5864d4f943c718e2b192e4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: redglow_spritesheet_1
+      name: Pacman spawn_ spritesheet_1
       rect:
         serializedVersion: 2
-        x: 164
+        x: 147
         y: 0
-        width: 82
-        height: 81
+        width: 147
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,19 +125,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 478c22f28497c7342bd8e4e6b213d2df
+      spriteID: a532c4455f8b4c54c884ff94897d4ee6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: redglow_spritesheet_2
+      name: Pacman spawn_ spritesheet_2
       rect:
         serializedVersion: 2
-        x: 246
+        x: 294
         y: 0
-        width: 82
-        height: 81
+        width: 147
+        height: 71
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +145,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be925785c2cdd7c49997934dab5c6621
+      spriteID: 8161ffa0589184346aac13f2094eb499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman spawn_ spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 0
+        width: 147
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18a23fa38ab6f7144aa6f71a22d502a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman spawn_ spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 147
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243316f5478214e49b334049023c7617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman spawn_ spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 0
+        width: 147
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a49877a7b696a2b4c875ee15f9f7bab0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pacman spawn_ spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 0
+        width: 147
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476556ad268bc7a4fb98310e26ed8900
       vertices: []
       indices: 
       edges: []
@@ -149,7 +233,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 895674b37d619754ea21da943b41fba3
+    spriteID: 1273a7c4dabf4594682667231307de6f
     vertices: []
     indices: 
     edges: []

@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: d4e8821f7928a824995181fab009eb80
+guid: b3404f4f3758d414a9b9f27622b49537
 TextureImporter:
   fileIDToRecycleName:
-    21300000: BBubbla spritesheet_0
-    21300002: BBubbla spritesheet_1
-    21300004: BBubbla spritesheet_2
-    21300006: BBubbla spritesheet_3
-    21300008: BBubbla spritesheet_4
-    21300010: BBubbla spritesheet_5
+    21300000: "framm\xE5t_animation_spritesheet_0"
+    21300002: "framm\xE5t_animation_spritesheet_1"
+    21300004: "framm\xE5t_animation_spritesheet_2"
+    21300006: "framm\xE5t_animation_spritesheet_3"
+    21300008: "framm\xE5t_animation_spritesheet_4"
+    21300010: "framm\xE5t_animation_spritesheet_5"
+    21300012: "framm\xE5t_animation_spritesheet_6"
+    21300014: "framm\xE5t_animation_spritesheet_7"
+    21300016: "framm\xE5t_animation_spritesheet_8"
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -90,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BBubbla spritesheet_0
+      name: "framm\xE5t_animation_spritesheet_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,19 +107,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82a5e85809c51e149b8f50b7a617bacd
+      spriteID: 7dc14bf9f7a414d49b18d04f42e796cd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BBubbla spritesheet_1
+      name: "framm\xE5t_animation_spritesheet_1"
       rect:
         serializedVersion: 2
-        x: 62
+        x: 79
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +127,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c38aa5d4b3a9c547b39770931c38578
+      spriteID: 041ad5b513e40b04dbf6eb741f9960df
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BBubbla spritesheet_2
+      name: "framm\xE5t_animation_spritesheet_2"
       rect:
         serializedVersion: 2
-        x: 124
+        x: 158
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,19 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 968f6cbcc41899d4d9445292764d395e
+      spriteID: 1dec2424431b62d4dac350daf8b962e7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BBubbla spritesheet_3
+      name: "framm\xE5t_animation_spritesheet_3"
       rect:
         serializedVersion: 2
-        x: 186
+        x: 237
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +167,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a701e3aded60694b8f45250e779364e
+      spriteID: bd1fd6d5b6be92549865f1f092fb778f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BBubbla spritesheet_4
+      name: "framm\xE5t_animation_spritesheet_4"
       rect:
         serializedVersion: 2
-        x: 248
+        x: 316
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b39b6351c5118745879779c115c5f54
+      spriteID: ffdcc61ffc3ac104cbf78ff7918b7913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BBubbla spritesheet_5
+      name: "framm\xE5t_animation_spritesheet_5"
       rect:
         serializedVersion: 2
-        x: 310
+        x: 395
         y: 0
-        width: 62
-        height: 57
+        width: 79
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,7 +207,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49e4c452d2b906d42be01adb300e315c
+      spriteID: 2671dfe8b754f38458dbc4b8b9ffc178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "framm\xE5t_animation_spritesheet_6"
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 0
+        width: 79
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4ae5ebe24cf56f498036ed5d773b9c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "framm\xE5t_animation_spritesheet_7"
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 0
+        width: 79
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c3453b6a21eae4096deed658288ed0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "framm\xE5t_animation_spritesheet_8"
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 0
+        width: 79
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204c6e7d9f92b7841b90eec2e0d1076f
       vertices: []
       indices: 
       edges: []
@@ -212,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0569768c883579c49b2e314c4fcd4bdf
+    spriteID: 6223fd3ac16cfe143ba07163170ed1fb
     vertices: []
     indices: 
     edges: []
