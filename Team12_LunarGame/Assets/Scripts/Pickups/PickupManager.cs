@@ -40,6 +40,11 @@ public class PickupManager : MonoBehaviour
         int index = Random.Range(1, _pickups.Length);      
         PickupObject obj = Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity);
         Pickup temp = _pickups[index];
+        Sprite icon = temp.Icon;
+
+        if(icon != null)
+            obj.GetComponentInChildren<SpriteRenderer>().sprite = icon;
+        
         _pickups[index] = _pickups[0];
         _pickups[0] = temp;
         obj.OnPickup += id => OnPickUp(id, _pickups[0]);
