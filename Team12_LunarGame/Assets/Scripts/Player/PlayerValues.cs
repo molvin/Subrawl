@@ -56,7 +56,7 @@ public class PlayerValues : MonoBehaviour
     {
         if (Invincible) 
             return;
-        GameManager.HandlePlayerDeath(Id);
+        GameManager.HandlePlayerDeath(Id, transform.position);
         _players.Remove(Id);
         Destroy(gameObject);
         OnDeath?.Invoke();

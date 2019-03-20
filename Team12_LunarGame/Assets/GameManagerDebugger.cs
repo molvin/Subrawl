@@ -8,7 +8,7 @@ public class GameManagerDebugger : MonoBehaviour
     [SerializeField] private bool _drawSpawnBox;
     [SerializeField] private bool _drawPlayerSpawns;
     [SerializeField] private Color _debugColor;
-
+    
     private GameManager _gameManager;
     
     private void Start()

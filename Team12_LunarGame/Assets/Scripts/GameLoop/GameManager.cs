@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector2[] _playerSpawnPoints;
     [SerializeField] private float _spawnPositionEdgeBuffer = 50.0f;
     [SerializeField] private float _respawnTime = 2.0f;
-    
+    [SerializeField] private GameObject _playerDeathPrefab;
+
     public static readonly Dictionary<int, int> PlayerLives = new Dictionary<int, int>();
     public static Action OnLivesChanged;
     public static Action<int, int> OnLifeUpdate;
@@ -40,11 +41,12 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public static void HandlePlayerDeath(int deadPlayerId)
+    public static void HandlePlayerDeath(int deadPlayerId, Vector3 position)
     {
         if (!PlayerLives.ContainsKey(deadPlayerId))
             return;
 
+        Destroy(Instantiate(_instance._playerDeathPrefab, position, Quaternion.identity), 5f);
         PlayerLives[deadPlayerId]--;
         if (PlayerLives[deadPlayerId] > 0)
             _instance.StartCoroutine(_instance.SpawnRoutine(deadPlayerId, _instance._respawnTime));

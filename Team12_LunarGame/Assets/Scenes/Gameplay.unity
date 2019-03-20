@@ -859,6 +859,12 @@ PrefabInstance:
       propertyPath: _playerSpawnPoints.Array.data[1].y
       value: -9
       objectReference: {fileID: 0}
+    - target: {fileID: 6462517463896395207, guid: 35e51969f2318594581b97ed96c2d840,
+        type: 3}
+      propertyPath: _playerDeathPrefab
+      value: 
+      objectReference: {fileID: 6984861573311466547, guid: 5fc5dcea6fc09d941ae448bbb3a2224f,
+        type: 3}
     - target: {fileID: 6462517464662443194, guid: 35e51969f2318594581b97ed96c2d840,
         type: 3}
       propertyPath: m_LocalPosition.z
