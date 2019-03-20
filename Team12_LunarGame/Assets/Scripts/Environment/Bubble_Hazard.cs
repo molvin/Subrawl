@@ -18,6 +18,8 @@ public class Bubble_Hazard : MonoBehaviour
     public float KillY;
     public Animator animatorbubble;
 
+    public float PlayerPositionSmoothingTime = 0.1f;
+
     private void Start()
     {
         //player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
@@ -131,7 +133,9 @@ public class Bubble_Hazard : MonoBehaviour
         
         if (Overlap)
         {
-            PlayerValues.GetPlayer(0).transform.position = gameObject.transform.position;
+            //PlayerValues.GetPlayer(0).transform.position = gameObject.transform.position;
+            Vector3 positionDelta = Vector3.zero;
+            PlayerValues.GetPlayer(0).transform.position = Vector3.SmoothDamp(PlayerValues.GetPlayer(0).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
             if (PlayerValues.GetPlayer(0).transform.position.y > KillY)
             {
                 PopBubble(true);
@@ -140,7 +144,9 @@ public class Bubble_Hazard : MonoBehaviour
         }
         if (Overlap2)
         {
-            PlayerValues.GetPlayer(1).transform.position = gameObject.transform.position;
+            //PlayerValues.GetPlayer(1).transform.position = gameObject.transform.position;
+            Vector3 positionDelta = Vector3.zero;
+            PlayerValues.GetPlayer(1).transform.position = Vector3.SmoothDamp(PlayerValues.GetPlayer(1).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
             if (PlayerValues.GetPlayer(1).transform.position.y > KillY)
             {
                 PopBubble(true);

@@ -137,6 +137,7 @@ MonoBehaviour:
   TimeToDeath: 20
   KillY: 20
   animatorbubble: {fileID: 7429290308085162921}
+  PlayerPositionSmoothingTime: 0.05
 --- !u!50 &9047838961936167383
 Rigidbody2D:
   serializedVersion: 4
