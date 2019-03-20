@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        OnLivesChanged = null;
+        OnLifeUpdate = null;
+        OnVictory = null;
         ResetLives();
 
         if (FindObjectOfType<PlayerValues>() == null)

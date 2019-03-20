@@ -77,6 +77,7 @@ public class HomingMissileManager : MonoBehaviour
         
         int ownerID = pickUpManagerReference.GetCurrentPickupOwner();
         PlayerValues Target = PlayerValues.GetPlayer(ownerID == 0 ? 1 : 0);
+        if (Target == null) return;
         for(int i = 0; i < missileCount; ++i)
         {
             GameObject instance = Instantiate(missilePrefab, PlayerValues.GetPlayer(ownerID).transform.position, Quaternion.identity);
