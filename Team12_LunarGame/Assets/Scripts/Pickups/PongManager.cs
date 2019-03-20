@@ -35,6 +35,7 @@ public class PongManager : MonoBehaviour
         _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(-45, 45)) * directionAwayFromOwner  * _ballSpeed;
         _active = true;
         _startTime = Time.time;
+        _paddles[1].transform.GetChild(0).transform.localScale = new Vector3(-1, 1, 1);
     }
 
     private void Update()
