@@ -137,7 +137,13 @@ MonoBehaviour:
   TimeToDeath: 20
   KillY: 20
   animatorbubble: {fileID: 7429290308085162921}
-  PlayerPositionSmoothingTime: 0.05
+  PlayerPositionSmoothingTime: 0.075
+  MaxXDelta:
+    Min: 0.2
+    Max: 0.7
+  XSpeed:
+    Min: 0.5
+    Max: 1
 --- !u!50 &9047838961936167383
 Rigidbody2D:
   serializedVersion: 4
@@ -174,7 +180,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.00000023841858, y: 0}
   serializedVersion: 2
-  m_Radius: 0.19
+  m_Radius: 0.11
 --- !u!95 &7429290308085162921
 Animator:
   serializedVersion: 3

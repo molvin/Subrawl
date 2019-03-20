@@ -18,14 +18,27 @@ public class Bubble_Hazard : MonoBehaviour
     public float KillY;
     public Animator animatorbubble;
 
+    private bool popped;
     public float PlayerPositionSmoothingTime = 0.1f;
 
+    public MinMaxFloat MaxXDelta;
+    public MinMaxFloat XSpeed;
+    private float xOrigin;
+    private float timeAlive;
+    private float maxXDelta;
+    private float xSpeed;
+    
     private void Start()
     {
         //player = PlayerValues.GetPlayer(0).gameObject;//GameObject.FindGameObjectWithTag("Player");
         //player2 = PlayerValues.GetPlayer(1).gameObject;//GameObject.FindGameObjectWithTag("Player2");
         Coral = GameObject.FindGameObjectWithTag("Coral");
         Destroy(transform.root.gameObject, TimeToDeath);
+        xOrigin = parent.transform.position.x;
+        //random start x
+        timeAlive = Random.Range(0.0f, 100.0f);
+        xSpeed = XSpeed.GetRandomValue();
+        maxXDelta = MaxXDelta.GetRandomValue();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -125,7 +138,11 @@ public class Bubble_Hazard : MonoBehaviour
         
         //Movement
         parent.transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-
+        //Wiggle
+        Vector3 position = parent.transform.position;
+        position.x = xOrigin + maxXDelta * Mathf.Sin((timeAlive += Time.deltaTime * xSpeed));
+        parent.transform.position = position;
+        
         if (Overlap && PlayerValues.GetPlayer(0) == null)
             return;
         if (Overlap2 && PlayerValues.GetPlayer(1) == null)
@@ -228,6 +245,9 @@ public class Bubble_Hazard : MonoBehaviour
 
     void PopBubble(bool killPlayer)
     {
+        if (popped)
+            return;
+        popped = true;
         if (killPlayer)
         {
             if (Overlap)
