@@ -35,6 +35,8 @@ TextureImporter:
     21300060: Spritesheet_01_30
     21300062: Spritesheet_01_31
     21300064: Spritesheet_01_32
+    21300066: Spritesheet_01_33
+    21300068: Spritesheet_01_34
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -9505,6 +9507,46 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 374e9d901a9288d40b3c6512e6781bcb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_01_33
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 612
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2249630d4b4b7d74fbfe90df98c1eadb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spritesheet_01_34
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 611
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81d3c3f45e7b68d48afd08702491dc02
       vertices: []
       indices: 
       edges: []
