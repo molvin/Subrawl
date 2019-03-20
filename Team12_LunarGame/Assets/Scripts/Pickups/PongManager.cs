@@ -31,7 +31,7 @@ public class PongManager : MonoBehaviour
         _ballRadius = _ball.GetComponent<CircleCollider2D>().radius;
         int ballStartOwner = Random.value > 0.5f ? 0 : 1;
         Vector2 directionAwayFromOwner = Vector2.right * (ballStartOwner == 0 ? -1 : 1);
-        _ball.transform.position = (Vector2)_paddles[ballStartOwner].transform.position + directionAwayFromOwner * _ballRadius * 2f;
+        _ball.transform.position = (Vector2)_paddles[ballStartOwner].transform.position + directionAwayFromOwner * _ballRadius * 5f;
         _ballVelocity = Quaternion.Euler(0.0f, 0.0f, Random.Range(-45, 45)) * directionAwayFromOwner  * _ballSpeed;
         _active = true;
         _startTime = Time.time;

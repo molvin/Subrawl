@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="276e8b44-ff18-4117-8985-84cada579ad6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pong/Paddle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pong/Paddle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/PacMan/PacManAI.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/PacMan/PacManAI.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pickups/PongManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PongManager.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,17 +17,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/PongManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="422">
+              <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
               <folding>
-                <marker date="1553098114095" expanded="false" signature="6:91" ph="..." />
-                <marker date="1553098114095" expanded="true" signature="133:3219" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="841:1828" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="1855:2956" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="2110:2559" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="2695:2876" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="2986:3216" ph="{...}" />
-                <marker date="1553098114095" expanded="true" signature="3036:3081" ph="{...}" />
+                <marker date="1553098867298" expanded="false" signature="6:91" ph="..." />
+                <marker date="1553098867298" expanded="true" signature="133:3219" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="841:1828" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="1855:2956" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="2110:2559" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="2695:2876" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="2986:3216" ph="{...}" />
+                <marker date="1553098867298" expanded="true" signature="3036:3081" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+              <folding>
+                <marker date="1553098736296" expanded="false" signature="6:78" ph="..." />
+                <marker date="1553098736296" expanded="true" signature="124:2804" ph="{...}" />
+                <marker date="1553098736296" expanded="true" signature="359:927" ph="{...}" />
+                <marker date="1553098736296" expanded="true" signature="470:555" ph="{...}" />
+                <marker date="1553098736296" expanded="true" signature="565:920" ph="/* if (other.gameObject.name == &quot;Player 1&quot;) ... */" />
+                <marker date="1553098736296" expanded="true" signature="947:1738" ph="{...}" />
+                <marker date="1553098736296" expanded="true" signature="1592:1732" ph="/* if (Player1PickedUpTheThing == true) ... */" />
+                <marker date="1553098736296" expanded="true" signature="1744:1877" ph="/* else ... */" />
+                <marker date="1553098736296" expanded="true" signature="1917:2043" ph="{...}" />
+                <marker date="1553098736296" expanded="true" signature="2062:2801" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -102,12 +124,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Utility/Helpers.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerValues.cs" />
         <option value="$PROJECT_DIR$/Assets/HomingMissileManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Environment/Bubble_Hazard.cs" />
         <option value="$PROJECT_DIR$/Assets/VictoryScreen.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameLoop/CountDown.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameLoop/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PongManager.cs" />
       </list>
     </option>
@@ -247,7 +269,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32518000" />
+    <option name="totallyTimeSpent" value="33269000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -483,25 +505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-          <folding>
-            <marker date="1553096802989" expanded="false" signature="6:78" ph="..." />
-            <marker date="1553096802989" expanded="true" signature="124:2596" ph="{...}" />
-            <marker date="1553096802989" expanded="true" signature="355:923" ph="{...}" />
-            <marker date="1553096802989" expanded="true" signature="466:551" ph="{...}" />
-            <marker date="1553096802989" expanded="true" signature="561:916" ph="/* if (other.gameObject.name == &quot;Player 1&quot;) ... */" />
-            <marker date="1553096802989" expanded="true" signature="943:1734" ph="{...}" />
-            <marker date="1553096802989" expanded="true" signature="1544:1728" ph="/* if (Player1PickedUpTheThing == true) ... */" />
-            <marker date="1553096802989" expanded="true" signature="1740:1873" ph="/* else ... */" />
-            <marker date="1553096802989" expanded="true" signature="1913:2039" ph="{...}" />
-            <marker date="1553096802989" expanded="true" signature="2058:2593" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/HealthUI.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -676,19 +679,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/PacMan/PacManAIFollow.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="76" column="27" lean-forward="true" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+          <folding>
+            <marker date="1553098736296" expanded="false" signature="6:78" ph="..." />
+            <marker date="1553098736296" expanded="true" signature="124:2804" ph="{...}" />
+            <marker date="1553098736296" expanded="true" signature="359:927" ph="{...}" />
+            <marker date="1553098736296" expanded="true" signature="470:555" ph="{...}" />
+            <marker date="1553098736296" expanded="true" signature="565:920" ph="/* if (other.gameObject.name == &quot;Player 1&quot;) ... */" />
+            <marker date="1553098736296" expanded="true" signature="947:1738" ph="{...}" />
+            <marker date="1553098736296" expanded="true" signature="1592:1732" ph="/* if (Player1PickedUpTheThing == true) ... */" />
+            <marker date="1553098736296" expanded="true" signature="1744:1877" ph="/* else ... */" />
+            <marker date="1553098736296" expanded="true" signature="1917:2043" ph="{...}" />
+            <marker date="1553098736296" expanded="true" signature="2062:2801" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Pickups/PongManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="422">
+          <caret line="35" column="23" lean-forward="true" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
           <folding>
-            <marker date="1553098114095" expanded="false" signature="6:91" ph="..." />
-            <marker date="1553098114095" expanded="true" signature="133:3219" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="841:1828" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="1855:2956" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="2110:2559" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="2695:2876" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="2986:3216" ph="{...}" />
-            <marker date="1553098114095" expanded="true" signature="3036:3081" ph="{...}" />
+            <marker date="1553098867298" expanded="false" signature="6:91" ph="..." />
+            <marker date="1553098867298" expanded="true" signature="133:3219" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="841:1828" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="1855:2956" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="2110:2559" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="2695:2876" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="2986:3216" ph="{...}" />
+            <marker date="1553098867298" expanded="true" signature="3036:3081" ph="{...}" />
           </folding>
         </state>
       </provider>

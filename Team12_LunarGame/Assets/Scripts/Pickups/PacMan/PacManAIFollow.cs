@@ -11,7 +11,7 @@ public class PacManAIFollow : MonoBehaviour{
     public Transform target;
     public Animator animator;
     public float rotationSpeed;
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerValues player = other.gameObject.GetComponent<PlayerValues>();
@@ -76,7 +76,13 @@ public class PacManAIFollow : MonoBehaviour{
     {
         if (target == null)
             return;
-            
+
+        Vector2 toTarget = target.position - transform.position;
+        Vector3 scale = Vector3.one;
+        scale.y = toTarget.x < 0.0f ? -1 : 1;
+        transform.GetChild(0).localScale = scale;
+        
+        
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
         Vector3 vectorToTarget = target.transform.position - transform.position;
