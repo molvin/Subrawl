@@ -32,8 +32,20 @@ public class HealthUI : MonoBehaviour
         List<Image> health = _healthImages[id];
         for(int i = 0; i < health.Count; i++)
         {
-            health[i].enabled = i < lives;
+            bool shouldBeEnabled = i < lives;
+            if (shouldBeEnabled)
+                health[i].enabled = shouldBeEnabled;
+            else
+                StartCoroutine(DisableHeart(health[i]));
         }
+    }
+
+    private IEnumerator DisableHeart(Image health)
+    {
+        health.GetComponent<Animator>().SetTrigger("Death");
+        yield return new WaitForSeconds(1.0f);
+        health.enabled = false;
+        yield return null;
     }
     
 }
