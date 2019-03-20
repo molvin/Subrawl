@@ -271,7 +271,8 @@ public class Bubble_Hazard : MonoBehaviour
             }
         }     
         
-        animatorbubble.SetBool("Destroyed", true);
+        if(animatorbubble != null)
+            animatorbubble.SetBool("Destroyed", true);
         //Destroy(this);
         //Destroy(transform.root.gameObject, 5f);
     }

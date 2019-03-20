@@ -24,6 +24,7 @@ public class PickupManager : MonoBehaviour
     private float _timeOfLastPickup;
     private int _currentPickupOwner;
     public Pickup[] Pickups => _pickups;
+    private int _nextPickup;
     
     private void Start()
     {
@@ -37,17 +38,15 @@ public class PickupManager : MonoBehaviour
     }
     private void SpawnPickUp()
     {
-        int index = Random.Range(1, _pickups.Length);      
+        int index = _nextPickup;
+        _nextPickup = (_nextPickup + 1) % _pickups.Length;
         PickupObject obj = Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity);
-        Pickup temp = _pickups[index];
-        Sprite icon = temp.Icon;
+        Sprite icon = _pickups[index].Icon;
 
         if(icon != null)
             obj.GetComponentInChildren<SpriteRenderer>().sprite = icon;
         
-        _pickups[index] = _pickups[0];
-        _pickups[0] = temp;
-        obj.OnPickup += id => OnPickUp(id, _pickups[0]);
+        obj.OnPickup += id => OnPickUp(id, _pickups[index]);
 
     }
     public void OnPickUp(int playerId, Pickup pickup)

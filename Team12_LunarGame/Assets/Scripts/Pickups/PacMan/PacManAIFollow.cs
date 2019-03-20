@@ -20,10 +20,10 @@ public class PacManAIFollow : MonoBehaviour{
             player.Die();
             Destroy(gameObject, 0.5f);
         }
-        if(player.IsPlayerDead)
-        {
-            Destroy(this.gameObject);
-        }
+//        if(player == null || player.IsPlayerDead)
+//        {
+//            Destroy(this.gameObject);
+//        }
 
         //if (other.gameObject.name == "Player 1")
         //{
