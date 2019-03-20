@@ -20,6 +20,10 @@ public class PacManAIFollow : MonoBehaviour{
             player.Die();
             Destroy(gameObject, 0.5f);
         }
+        if(player.IsPlayerDead)
+        {
+            Destroy(this.gameObject);
+        }
 
         //if (other.gameObject.name == "Player 1")
         //{
@@ -75,7 +79,11 @@ public class PacManAIFollow : MonoBehaviour{
     void Update()
     {
         if (target == null)
+        {
+            Destroy(this.gameObject);
             return;
+        }
+            
 
         Vector2 toTarget = target.position - transform.position;
         Vector3 scale = Vector3.one;
