@@ -15,6 +15,7 @@
         <e p="HomingMissileManager.cs" t="Include" />
         <e p="MainMenu.cs" t="Include" />
         <e p="PlayAnimation.cs" t="Include" />
+        <e p="PlayArea.cs" t="Include" />
         <e p="Prefabs" t="Include">
           <e p="Hazards" t="Include">
             <e p="KillZone.cs" t="Include" />
@@ -114,6 +115,7 @@
             <e p="Bubble_Hazard.cs" t="Include" />
           </e>
           <e p="GameLoop" t="Include">
+            <e p="CountDown.cs" t="Include" />
             <e p="GameManager.cs" t="Include" />
             <e p="TestUI.cs" t="Include" />
           </e>

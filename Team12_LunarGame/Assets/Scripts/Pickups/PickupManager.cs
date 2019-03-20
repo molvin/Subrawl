@@ -17,7 +17,7 @@ public class PickupManager : MonoBehaviour
     }
     
     [SerializeField] private float _timeBetweenPickups = 10f;
-    [SerializeField] private float _gameStartDelay = 3.0f;
+    [SerializeField] private float _gameStartDelay = 5.0f;
     [SerializeField] private Pickup[] _pickups;
     [SerializeField] private PickupObject _pickUpObject;
     

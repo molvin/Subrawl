@@ -35,8 +35,8 @@ public class GameManager : MonoBehaviour
 
         if (FindObjectOfType<PlayerValues>() == null)
         {
-            SpawnPlayer(0);
-            SpawnPlayer(1);
+            StartCoroutine(SpawnRoutine(0, 5));
+            StartCoroutine(SpawnRoutine(1, 5));
         }
         
     }
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
         PlayerLives[deadPlayerId]--;
         if (PlayerLives[deadPlayerId] > 0)
-            _instance.StartCoroutine(_instance.SpawnRoutine(deadPlayerId));
+            _instance.StartCoroutine(_instance.SpawnRoutine(deadPlayerId, _instance._respawnTime));
 
         if (!_instance._gameOver && PlayerLives[deadPlayerId] == 0)
         {
@@ -60,9 +60,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private IEnumerator SpawnRoutine(int id)
+    private IEnumerator SpawnRoutine(int id, float time)
     {
-        yield return new WaitForSeconds(_respawnTime);
+        yield return new WaitForSeconds(time);
         SpawnPlayer(id);
     }
     private void SpawnPlayer(int id)

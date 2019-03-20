@@ -7,6 +7,7 @@ using System.Collections;
 public class CountDown : MonoBehaviour
 {
     public float timeBetweenSprites = 1f;
+    public float GoTime = 2.0f;
     public Sprite[] timerSprites;
     public Image go;
     public Image vs;
@@ -35,27 +36,22 @@ public class CountDown : MonoBehaviour
 
         int index = -1;
         for (int i = 0; i < timerSprites.Length; i++)
-
-    {
-         index++;
-         image.sprite = timerSprites[index];
-         yield return new WaitForSeconds(timeBetweenSprites);
-    }
+        {
+             index++;
+             image.sprite = timerSprites[index];
+             yield return new WaitForSeconds(timeBetweenSprites);
+        }
         vs.gameObject.SetActive(false);
         go.gameObject.SetActive(true);
         Player1.gameObject.SetActive(false);
         Player2.gameObject.SetActive(false);
         WASD.gameObject.SetActive(false);
         Arrows.gameObject.SetActive(false);
-        Timer.gameObject.SetActive(false);
+        Timer.enabled = (false);
 
-        yield return RemoveGo();
+        yield return new WaitForSeconds(GoTime);
+        go.gameObject.SetActive(false);
+        Debug.Log("yeet");
     }
 
-        private IEnumerator RemoveGo()
-        {
-            yield return new WaitForSeconds(4f);
-            go.gameObject.SetActive(false);
-        print("yeet");
-        }
 }
