@@ -10,6 +10,7 @@ public class PickupManager : MonoBehaviour
     public class Pickup
     {
         public string Name;
+        public Sprite Icon;
         public GameObject[] ObjectsToSpawn;
         public UnityEvent OnActivation;
         public UnityEvent<int> OnActivationWithPlayerId;
@@ -37,10 +38,17 @@ public class PickupManager : MonoBehaviour
     private void SpawnPickUp()
     {
         int index = Random.Range(1, _pickups.Length);      
-        Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity).OnPickup += id => OnPickUp(id, _pickups[index]);
+        PickupObject obj = Instantiate(_pickUpObject, GameManager.GetRandomSpawnPoint(), Quaternion.identity);
         Pickup temp = _pickups[index];
+        Sprite icon = temp.Icon;
+
+        if(icon != null)
+            obj.GetComponentInChildren<SpriteRenderer>().sprite = icon;
+        
         _pickups[index] = _pickups[0];
         _pickups[0] = temp;
+        obj.OnPickup += id => OnPickUp(id, _pickups[0]);
+
     }
     public void OnPickUp(int playerId, Pickup pickup)
     {

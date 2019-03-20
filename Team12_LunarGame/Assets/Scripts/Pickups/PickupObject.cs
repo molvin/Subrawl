@@ -7,7 +7,7 @@ public class PickupObject : MonoBehaviour
 {
     public Action<int> OnPickup;
     private bool _triggered;
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (_triggered)
