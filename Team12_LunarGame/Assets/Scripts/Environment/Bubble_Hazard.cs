@@ -1,4 +1,5 @@
-﻿using Rewired;
+﻿using System.Collections;
+using Rewired;
 using UnityEngine;
 
 public class Bubble_Hazard : MonoBehaviour
