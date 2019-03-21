@@ -58,6 +58,7 @@ public class PlayerValues : MonoBehaviour
     {
         if (Invincible) 
             return;
+        AudioManager.PlaySound("Explosion");
         GameManager.HandlePlayerDeath(Id, transform.position);
         IsPlayerDead = true;
         _players.Remove(Id);

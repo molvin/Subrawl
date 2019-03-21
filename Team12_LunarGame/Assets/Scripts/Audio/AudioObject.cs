@@ -9,6 +9,7 @@ public class AudioObject : ScriptableObject
     public List<AudioClip> Clips;
     public bool Looping;
     public bool RandomizeStartTime;
+    public bool Persistant;
     [Range(0.0f, 1.0f)] public float Volume = 0.5f;
     public AudioMixerGroup Output;
 

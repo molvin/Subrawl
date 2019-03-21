@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd056d2ef1393b44b01508358ce922d, type: 3}
+  m_Name: Explosion
+  m_EditorClassIdentifier: 
+  Name: Explosion
+  Clips:
+  - {fileID: 8300000, guid: e27f63ee1b701c843b44107a35110d9d, type: 3}
+  - {fileID: 8300000, guid: 005c04b7f9cbf8a42a1a8eb3ced1c90b, type: 3}
+  - {fileID: 8300000, guid: 75180199fefab4743997482e077405d9, type: 3}
+  - {fileID: 8300000, guid: 6a803de1db99fd04ba3d13393b3578b0, type: 3}
+  Looping: 0
+  RandomizeStartTime: 0
+  Volume: 0.5
+  Output: {fileID: 0}

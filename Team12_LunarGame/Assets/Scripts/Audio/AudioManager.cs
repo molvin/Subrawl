@@ -70,6 +70,8 @@ public class AudioManager : MonoBehaviour
         if (ao.RandomizeStartTime)
             source.time = Random.Range(0.0f, source.clip.length);
         source.Play();
+        if(ao.Persistant)
+            DontDestroyOnLoad(source.gameObject);
         _instance._playingSources.Add(source);
         
         return new AudioRemote(source);

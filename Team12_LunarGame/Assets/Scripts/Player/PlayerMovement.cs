@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _rotationSpeed = 250;
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
+    [SerializeField] private float _forceToMakeSoundOnHit;
     public LayerMask CollisionLayers = default(LayerMask);
     public int RewiredId;
     [SerializeField] private Vector2 _velocity;
@@ -19,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private Player _rewiredPlayer;
     private int _id;
     public Animator AnimationControl;
+    
     
     private void Start()
     {
@@ -69,7 +71,8 @@ public class PlayerMovement : MonoBehaviour
             PlayerMovement otherPlayer = hit.collider.GetComponent<PlayerMovement>();
             if (otherPlayer != null)
                 HandlePlayerCollision(hit, otherPlayer);
-                
+            if (force > _forceToMakeSoundOnHit)
+                AudioManager.PlaySound("Hit");
         }
         _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
         transform.position += (Vector3) _velocity * Time.deltaTime;

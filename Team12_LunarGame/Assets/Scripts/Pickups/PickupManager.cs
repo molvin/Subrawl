@@ -51,6 +51,7 @@ public class PickupManager : MonoBehaviour
     }
     public void OnPickUp(int playerId, Pickup pickup)
     {
+        AudioManager.PlaySound("PowerUp");
         _currentPickupOwner = playerId;
         Debug.Log("Activated: " + pickup.Name);
         foreach (GameObject go in pickup.ObjectsToSpawn)

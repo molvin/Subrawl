@@ -155,6 +155,7 @@ MonoBehaviour:
   _rotationSpeed: 250
   _bounceForceMultiplier: 0.5
   _playerBounceMultiplier: 1.5
+  _forceToMakeSoundOnHit: 2
   CollisionLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -191,6 +192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0
   Invincible: 0
+  IsPlayerDead: 0
   AnimationController: {fileID: 9185703531642959430}
   _invincibilityDuration: 1
 --- !u!95 &9185703531642959430

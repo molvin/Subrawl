@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd056d2ef1393b44b01508358ce922d, type: 3}
+  m_Name: Hit
+  m_EditorClassIdentifier: 
+  Name: Hit
+  Clips:
+  - {fileID: 8300000, guid: 87eeb74e6319911498c3ff39f45f85aa, type: 3}
+  - {fileID: 8300000, guid: 8f38bc3689e24dd47a32c5d1d50f6970, type: 3}
+  - {fileID: 8300000, guid: 0d8d4389535cfeb428b2ef615468e282, type: 3}
+  - {fileID: 8300000, guid: 8c09845c8c691064682a50b35f09d664, type: 3}
+  Looping: 0
+  RandomizeStartTime: 0
+  Volume: 0.5
+  Output: {fileID: 243734171481419134, guid: 3aa225a847c412147add115f5d631072, type: 2}

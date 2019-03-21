@@ -54,14 +54,16 @@ public class PongManager : MonoBehaviour
                 player.Die();
                 ResetPong();
             }
-                
-
             else
+            {
                 _ballVelocity = Vector2.Reflect(_ballVelocity, hit.normal);
+                AudioManager.PlaySound("Hit");
+            }
 
         }
 
-        _ball.transform.position += (Vector3) _ballVelocity * Time.deltaTime;
+        if(_ball != null)
+            _ball.transform.position += (Vector3) _ballVelocity * Time.deltaTime;
         
         foreach (GameObject paddle in _paddles)
         {
