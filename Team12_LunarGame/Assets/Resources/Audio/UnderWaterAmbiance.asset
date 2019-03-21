@@ -18,5 +18,6 @@ MonoBehaviour:
   Looping: 1
   RandomizeStartTime: 1
   Persistant: 1
-  Volume: 0.27
-  Output: {fileID: 0}
+  Volume: 0.351
+  Output: {fileID: 243612863517053752, guid: 3aa225a847c412147add115f5d631072, type: 2}
+  FadeOutTime: 0

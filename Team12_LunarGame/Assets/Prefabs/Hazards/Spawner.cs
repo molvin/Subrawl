@@ -35,7 +35,10 @@ public class Spawner : MonoBehaviour
         {
             animator.PlayAnim();
         }
+
+        AudioRemote remote = AudioManager.PlaySound("Bubbles");
         yield return new WaitForSeconds(DelayBeforeBubbles);
+        remote.FadeOut();
         foreach (PlayAnimation animator in Animators)
         {
             animator.StopAnim();

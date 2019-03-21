@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Rewired;
 using UnityEngine;
 
 public class PlayerValues : MonoBehaviour
@@ -16,6 +17,10 @@ public class PlayerValues : MonoBehaviour
     private static readonly Dictionary<int, PlayerValues> _players = new Dictionary<int, PlayerValues>();
 
     public Action OnDeath;
+    
+    private bool _playingSound;
+    private AudioRemote _audioRemote;
+
     
     private void Start()
     {
@@ -42,6 +47,25 @@ public class PlayerValues : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O) && Id == 0 || Input.GetKeyDown(KeyCode.P) && Id == 1)
             Die();
 
+
+        float vertical = ReInput.players.GetPlayer(Id).GetAxisRaw("Vertical");
+        if (Mathf.Abs(vertical) > 0.5f)
+        {
+            if (!_playingSound)
+            {
+                _playingSound = true;
+                _audioRemote = AudioManager.PlaySound("Accelerate");
+            }
+        }
+        else
+        {
+            if (_playingSound)
+            {
+                _audioRemote.FadeOut();
+                _playingSound = false;
+            }
+        }
+        
         if (!Invincible)
             return;
         
@@ -58,6 +82,9 @@ public class PlayerValues : MonoBehaviour
     {
         if (Invincible) 
             return;
+        
+        if(_playingSound)
+            _audioRemote.FadeOut();
         AudioManager.PlaySound("Explosion");
         GameManager.HandlePlayerDeath(Id, transform.position);
         IsPlayerDead = true;

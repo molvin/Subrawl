@@ -37,6 +37,7 @@ public class CountDown : MonoBehaviour
         int index = -1;
         for (int i = 0; i < timerSprites.Length; i++)
         {
+            AudioManager.PlaySound("Countdown");
              index++;
              image.sprite = timerSprites[index];
              yield return new WaitForSeconds(timeBetweenSprites);
@@ -48,6 +49,7 @@ public class CountDown : MonoBehaviour
         WASD.gameObject.SetActive(false);
         Arrows.gameObject.SetActive(false);
         Timer.enabled = (false);
+        AudioManager.PlaySound("Go");
 
         yield return new WaitForSeconds(GoTime);
         go.gameObject.SetActive(false);

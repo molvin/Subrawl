@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 884372547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: f6aa40a76b9d71b4292ee2c97b8c4ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -1810,9 +1810,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1839,7 +1839,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &884372550
@@ -2225,7 +2225,7 @@ SpriteRenderer:
   m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1190853991
@@ -2279,6 +2279,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameplaySceneName: Gameplay
+  _playButton: {fileID: 884372549}
+  _quitButton: {fileID: 1542012284}
+  _playSprites:
+  - {fileID: 21300072, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  - {fileID: 21300074, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  - {fileID: 21300076, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  _quitSprites:
+  - {fileID: 21300078, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  - {fileID: 21300080, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
+  - {fileID: 21300082, guid: 70cd4f66603376d48aa2cdf1e5372bc7, type: 3}
 --- !u!1 &1223996911
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,7 +3213,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1542012282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: f6aa40a76b9d71b4292ee2c97b8c4ef9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -3215,7 +3225,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
@@ -3244,7 +3254,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1542012285

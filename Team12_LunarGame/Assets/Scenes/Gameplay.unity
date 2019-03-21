@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawSpawnBox: 0
-  _drawPlayerSpawns: 1
+  _drawPlayerSpawns: 0
   _debugColor: {r: 1, g: 0.18762848, b: 0, a: 0.4745098}
 --- !u!1 &157364905
 GameObject:

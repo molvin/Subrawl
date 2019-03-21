@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour
             DontDestroyOnLoad(source.gameObject);
         _instance._playingSources.Add(source);
         
-        return new AudioRemote(source);
+        return new AudioRemote(source, ao.FadeOutTime);
     }
     private void BuildDictionary()
     {
@@ -83,17 +83,43 @@ public class AudioManager : MonoBehaviour
         foreach (AudioObject ao in _audioObjects)
             _audioObjectDictionary.Add(ao.Name, ao);        
     }
+
+    public static void FadeOutSound(AudioRemote remote)
+    {
+        _instance.StartCoroutine(_instance.FadeOutRoutine(remote));
+    }
+
+    private IEnumerator FadeOutRoutine(AudioRemote remote)
+    {
+        float t = remote.FadeOutTime;
+        float startVolume = remote._source.volume;
+        while (t >= 0.0f)
+        {
+            remote._source.volume = startVolume * (t / remote.FadeOutTime);
+            t -= Time.deltaTime;
+            yield return null;
+        }
+
+        remote._source.Stop();
+    }
 }
 public class AudioRemote
 {
-    private readonly AudioSource _source;
+    public readonly AudioSource _source;
+    public float FadeOutTime;
 
-    public AudioRemote(AudioSource source)
+    public AudioRemote(AudioSource source, float fadeOutTime)
     {
         _source = source;
+        FadeOutTime = fadeOutTime;
     }
     public void Stop()
     {
         _source.Stop();
+    }
+
+    public void FadeOut()
+    {
+        AudioManager.FadeOutSound(this);
     }
 }

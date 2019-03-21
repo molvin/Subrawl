@@ -131,6 +131,7 @@ public class Bubble_Hazard : MonoBehaviour
         {
             PlayerValues.GetPlayer(1).GetComponent<PlayerMovement>().enabled = true;
         }
+
     }
 
     void Update()
@@ -226,6 +227,8 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Meter >= 20)
         {
+            AudioManager.PlaySound("Pop");
+
             animatorbubble.SetBool("Destroyed", true);
             //PopBubble(false);
             Meter = 0;
@@ -234,6 +237,8 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Meter2 >= 20)
         {
+            AudioManager.PlaySound("Pop");
+
             animatorbubble.SetBool("Destroyed", true);
             //PopBubble(false);
             Meter2 = 0;
