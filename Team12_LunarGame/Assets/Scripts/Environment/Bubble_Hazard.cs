@@ -17,6 +17,7 @@ public class Bubble_Hazard : MonoBehaviour
     public float TimeToDeath;
     public float KillY;
     public Animator animatorbubble;
+    public float maxWiggle = 0.2f;
 
     private bool popped;
     public float PlayerPositionSmoothingTime = 0.1f;
@@ -27,6 +28,8 @@ public class Bubble_Hazard : MonoBehaviour
     private float timeAlive;
     private float maxXDelta;
     private float xSpeed;
+
+    private Vector3 ShakeVector;
     
     private void Start()
     {
@@ -39,6 +42,7 @@ public class Bubble_Hazard : MonoBehaviour
         timeAlive = Random.Range(0.0f, 100.0f);
         xSpeed = XSpeed.GetRandomValue();
         maxXDelta = MaxXDelta.GetRandomValue();
+        ShakeVector = new Vector3(Mathf.Clamp(ShakeVector.x, -5, 5), 0, 0);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -189,17 +193,20 @@ public class Bubble_Hazard : MonoBehaviour
         //Breaking bubble
         if (Overlap)
         {
-            if ((ReInput.players.GetPlayer(0).GetButtonDown("Horizontal") || (ReInput.players.GetPlayer(0).GetButtonDown("Vertical"))))
+            if ((ReInput.players.GetPlayer(0).GetButtonDown("Struggle")))
             {
                 Meter = Meter + 1;
+                PlayerValues.GetPlayer(0).transform.position += (Vector3)Random.insideUnitCircle * maxWiggle;   
             }
         }
 
         if (Overlap2)
         {
-            if ((ReInput.players.GetPlayer(1).GetButtonDown("Horizontal") || (ReInput.players.GetPlayer(1).GetButtonDown("Vertical"))))
+            if ((ReInput.players.GetPlayer(1).GetButtonDown("Struggle")))
             {
                 Meter2 = Meter2 + 1;
+                PlayerValues.GetPlayer(1).transform.position += (Vector3)Random.insideUnitCircle * maxWiggle;
+
             }
         }
 
