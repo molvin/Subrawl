@@ -10,6 +10,7 @@ public class PlayerValues : MonoBehaviour
     public bool Invincible;
     public bool IsPlayerDead = false;
     public Animator AnimationController;
+    [SerializeField] private Animator _bubblesAnimator;
 
     [SerializeField] private float _invincibilityDuration;
     private float _currentInvincibilityTime;
@@ -49,6 +50,18 @@ public class PlayerValues : MonoBehaviour
 
 
         float vertical = ReInput.players.GetPlayer(Id).GetAxisRaw("Vertical");
+        
+        
+        _bubblesAnimator.GetComponent<SpriteRenderer>().enabled = (Mathf.Abs(vertical) > 0.5f);
+        ParticleSystem system = _bubblesAnimator.GetComponentInChildren<ParticleSystem>();
+        if (system != null)
+        {
+            if((Mathf.Abs(vertical) > 0.5f) && !system.isEmitting)
+                system.Play();
+            else if(Mathf.Abs(vertical) < 0.5f && system.isEmitting)
+                system.Stop();
+        }
+            
         if (Mathf.Abs(vertical) > 0.5f)
         {
             if (!_playingSound)
