@@ -79,11 +79,13 @@ public class Bubble_Hazard : MonoBehaviour
             {
                 Overlap = true;
                 playerValues.OnDeath += () => PopBubble(true);
+                AudioManager.PlaySound("Trap");
             } 
             if (playerValues.Id == 1 && !playerValues.Invincible)
             {
                 Overlap2 = true;
                 playerValues.OnDeath += () => PopBubble(true);
+                AudioManager.PlaySound("Trap");
             }
         }
 

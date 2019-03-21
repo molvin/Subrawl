@@ -118,12 +118,12 @@ public class PlayerValues : MonoBehaviour
     {
         _targetSprite.enabled = b;
         if (b)
-            StartCoroutine(FadeOutTarget());
+            FadeOutTarget();
     }
 
-    private IEnumerator FadeOutTarget()
+    public void FadeOutTarget()
     {
-        yield return new WaitForSeconds(15.0f - _fadoutTime);
+       
         _targetAnimator.SetTrigger("FadeOut");
     }
 }

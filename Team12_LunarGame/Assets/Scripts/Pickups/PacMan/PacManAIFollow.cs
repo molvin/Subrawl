@@ -58,7 +58,7 @@ public class PacManAIFollow : MonoBehaviour{
         else
             target = PlayerValues.GetPlayer(0)?.transform;
         animator.SetBool("Targeted", true);
-        target.GetComponent<PlayerValues>().SetTargeted(true);
+        target.GetComponent<PlayerValues>()?.SetTargeted(true);
         //if (Player1PickedUpTheThing == true)
         //{
         //target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>(); 

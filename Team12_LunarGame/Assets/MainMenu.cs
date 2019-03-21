@@ -11,11 +11,16 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private Sprite[] _playSprites;
     [SerializeField] private Sprite[] _quitSprites;
-    
+
+    private static bool _soundPlayed;
     
     private void Start()
     {
-        AudioManager.PlaySound("Ambiance");
+        if(!_soundPlayed)
+            AudioManager.PlaySound("Ambiance");
+
+        _soundPlayed = true;
+        
         _playButton.OnHoverEnter += () => _playButton.image.sprite = _playSprites[1];
         _playButton.OnHoverExit += () => _playButton.image.sprite = _playSprites[0];
         _playButton.OnClickBegin += () => _playButton.image.sprite = _playSprites[2];
