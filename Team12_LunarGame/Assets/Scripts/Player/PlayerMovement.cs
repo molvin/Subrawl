@@ -20,7 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private Player _rewiredPlayer;
     private int _id;
     public Animator AnimationControl;
-    
+    private float dist; 
+    private float leftBorder;
+    private float rightBorder;
+    private float topBorder;
+    private float bottomBorder;
     
     private void Start()
     {
@@ -29,6 +33,14 @@ public class PlayerMovement : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("Player " + (_id == 0 ? 1 : 2));
         LayerMask otherPlayerLayer = LayerMask.GetMask("Player " + (_id == 0 ? "2" : "1"));
         CollisionLayers |= otherPlayerLayer.value;
+        //player Position Clamp
+        dist = (transform.position - Camera.main.transform.position).z;
+        topBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 1, dist)).y;
+        bottomBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).y;
+        leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
+
+        _velocity = new Vector2(Mathf.Clamp(_velocity.x, leftBorder, rightBorder), Mathf.Clamp(_velocity.y, topBorder, bottomBorder));
     }
     private void Update()
     {
@@ -55,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
         float acceleration = _acceleration * _accelerationFactorRange.Lerp(1 - Vector2.Dot(transform.up, _velocity.normalized));
         _velocity += (Vector2) transform.up * vertical * acceleration * Time.deltaTime;
         _velocity = Vector2.ClampMagnitude(_velocity, _terminalVelocity);
+
     }
     private void UpdateTranslation()
     {
