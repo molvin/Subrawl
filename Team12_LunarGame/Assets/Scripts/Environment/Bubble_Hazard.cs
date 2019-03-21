@@ -170,7 +170,7 @@ public class Bubble_Hazard : MonoBehaviour
         {
             //PlayerValues.GetPlayer(0).transform.position = gameObject.transform.position;
             Vector3 positionDelta = Vector3.zero;
-            PlayerValues.GetPlayer(0).transform.position = Vector3.SmoothDamp(PlayerValues.GetPlayer(0).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
+            PlayerValues.GetPlayer(0).transform.position = Vector3.Lerp(PlayerValues.GetPlayer(0).transform.position, transform.position, 30 * Time.deltaTime);//Vector3.SmoothDamp(PlayerValues.GetPlayer(0).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
             if (PlayerValues.GetPlayer(0).transform.position.y > KillY)
             {
                 PopBubble(true);
@@ -181,7 +181,7 @@ public class Bubble_Hazard : MonoBehaviour
         {
             //PlayerValues.GetPlayer(1).transform.position = gameObject.transform.position;
             Vector3 positionDelta = Vector3.zero;
-            PlayerValues.GetPlayer(1).transform.position = Vector3.SmoothDamp(PlayerValues.GetPlayer(1).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
+            PlayerValues.GetPlayer(1).transform.position = Vector3.Lerp(PlayerValues.GetPlayer(1).transform.position, transform.position, 30 * Time.deltaTime);//Vector3.SmoothDamp(PlayerValues.GetPlayer(1).transform.position, transform.position, ref positionDelta, PlayerPositionSmoothingTime, float.MaxValue, Time.deltaTime);
             if (PlayerValues.GetPlayer(1).transform.position.y > KillY)
             {
                 PopBubble(true);
@@ -193,7 +193,7 @@ public class Bubble_Hazard : MonoBehaviour
         //Breaking bubble
         if (Overlap)
         {
-            if ((ReInput.players.GetPlayer(0).GetButtonDown("Struggle")))
+            if ((ReInput.players.GetPlayer(0).GetButtonDown("Struggle1") || ReInput.players.GetPlayer(0).GetButtonDown("Struggle2") || ReInput.players.GetPlayer(0).GetButtonDown("Struggle3") || ReInput.players.GetPlayer(0).GetButtonDown("Struggle4")))
             {
                 Meter = Meter + 1;
                 PlayerValues.GetPlayer(0).transform.position += (Vector3)Random.insideUnitCircle * maxWiggle;   
@@ -202,7 +202,7 @@ public class Bubble_Hazard : MonoBehaviour
 
         if (Overlap2)
         {
-            if ((ReInput.players.GetPlayer(1).GetButtonDown("Struggle")))
+            if ((ReInput.players.GetPlayer(1).GetButtonDown("Struggle1") || ReInput.players.GetPlayer(1).GetButtonDown("Struggle2") || ReInput.players.GetPlayer(1).GetButtonDown("Struggle3") || ReInput.players.GetPlayer(1).GetButtonDown("Struggle4")))
             {
                 Meter2 = Meter2 + 1;
                 PlayerValues.GetPlayer(1).transform.position += (Vector3)Random.insideUnitCircle * maxWiggle;

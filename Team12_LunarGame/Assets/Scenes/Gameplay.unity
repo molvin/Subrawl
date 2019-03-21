@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _drawSpawnBox: 0
-  _drawPlayerSpawns: 0
+  _drawPlayerSpawns: 1
   _debugColor: {r: 1, g: 0.18762848, b: 0, a: 0.4745098}
 --- !u!1 &157364905
 GameObject:
@@ -3182,7 +3182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667766586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.099, y: -5.533, z: 0}
+  m_LocalPosition: {x: -20.49, y: -5.92, z: 0}
   m_LocalScale: {x: 2.814831, y: 2.814831, z: 2.814831}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4239,7 +4239,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015116967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.751, y: -10.528, z: 0}
+  m_LocalPosition: {x: 19.14, y: -10.72, z: 0}
   m_LocalScale: {x: 2.7302847, y: 2.7006147, z: 0.645}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6875,6 +6875,146 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._name
+      value: Struggle2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._descriptiveName
+      value: Action0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[3]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actionIdCounter
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[4]._id
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[4]._name
+      value: Struggle3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[4]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[4]._descriptiveName
+      value: Action1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[4]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[4]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._name
+      value: Struggle4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._descriptiveName
+      value: Action2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[5]._userAssignable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actionCategoryMap.list.Array.data[0].actionIds.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.actions.Array.data[2]._name
+      value: Struggle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[1].actionElementMaps.Array.data[5]._actionId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[1].actionElementMaps.Array.data[6]._actionId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[1].actionElementMaps.Array.data[7]._actionId
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[2].actionElementMaps.Array.data[5]._actionId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[2].actionElementMaps.Array.data[6]._actionId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3828485042988729090, guid: f93dbddbfa5de744189d400a9f7734b8,
+        type: 3}
+      propertyPath: _userData.keyboardMaps.Array.data[2].actionElementMaps.Array.data[7]._actionId
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f93dbddbfa5de744189d400a9f7734b8, type: 3}

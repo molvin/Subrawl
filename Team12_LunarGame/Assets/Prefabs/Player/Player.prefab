@@ -337,6 +337,8 @@ MonoBehaviour:
   _bounceForceMultiplier: 0.5
   _playerBounceMultiplier: 1.5
   _forceToMakeSoundOnHit: 2
+  _bounceEffect: {fileID: 8881662628258713693, guid: 35c95564e25749043b4753eb736e1a4f,
+    type: 3}
   CollisionLayers:
     serializedVersion: 2
     m_Bits: 1

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _bounceForceMultiplier = 0.5f;
     [SerializeField] private float _playerBounceMultiplier = 1.5f;
     [SerializeField] private float _forceToMakeSoundOnHit;
+    [SerializeField] private GameObject _bounceEffect;
     public LayerMask CollisionLayers = default(LayerMask);
     public int RewiredId;
     [SerializeField] private Vector2 _velocity;
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
         rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
 
-        _velocity = new Vector2(Mathf.Clamp(_velocity.x, leftBorder, rightBorder), Mathf.Clamp(_velocity.y, topBorder, bottomBorder));
+        //_velocity = new Vector2(Mathf.Clamp(_velocity.x, leftBorder, rightBorder), Mathf.Clamp(_velocity.y, topBorder, bottomBorder));
     }
     private void Update()
     {
@@ -110,6 +111,7 @@ public class PlayerMovement : MonoBehaviour
         _velocity = hit.normal * _terminalVelocity;
         Debug.DrawRay(hit.point, -hit.normal * 10.0f, Color.red, 5f);
         otherPlayer._velocity = -hit.normal * _terminalVelocity;
+        Destroy(Instantiate(_bounceEffect, hit.point, transform.rotation * Quaternion.Euler(0.0f, 0.0f, 90.0f)), 1f);
     }
     public void AddVelocity(Vector2 velocity)
     {
