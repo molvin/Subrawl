@@ -26,6 +26,8 @@ public class VictoryScreen : MonoBehaviour
             _player1Wins.enabled = true;
         if (id == 1)
             _player2Wins.enabled = true;
+
+        AudioManager.PlaySound("GameOver");
         StartCoroutine(GoToMainMenu());
     }
 
