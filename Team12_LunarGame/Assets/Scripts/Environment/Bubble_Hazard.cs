@@ -44,6 +44,17 @@ public class Bubble_Hazard : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
 
+        if (other.CompareTag("Pacman"))
+        {   
+            Destroy(other.gameObject);
+            if(Overlap || Overlap2)
+                PopBubble(true);
+            else
+                PopBubble(false);
+            return;
+        }
+        
+        
         PlayerValues playerValues = other.gameObject.GetComponent<PlayerValues>();
 
         
@@ -64,12 +75,12 @@ public class Bubble_Hazard : MonoBehaviour
             }
             Debug.Log("Bubble bobble");
             playerValues.GetComponent<PlayerMovement>().enabled = false;
-            if (playerValues.Id == 0)
+            if (playerValues.Id == 0 && !playerValues.Invincible)
             {
                 Overlap = true;
                 playerValues.OnDeath += () => PopBubble(true);
             } 
-            if (playerValues.Id == 1)
+            if (playerValues.Id == 1 && !playerValues.Invincible)
             {
                 Overlap2 = true;
                 playerValues.OnDeath += () => PopBubble(true);

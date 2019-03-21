@@ -7,6 +7,7 @@ TagManager:
   - Coral
   - Player2
   - enemySpawnPoints
+  - Pacman
   layers:
   - Default
   - TransparentFX
