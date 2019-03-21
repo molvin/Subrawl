@@ -14,6 +14,10 @@ public class PlayerValues : MonoBehaviour
 
     [SerializeField] private float _invincibilityDuration;
     private float _currentInvincibilityTime;
+
+    [SerializeField] private SpriteRenderer _targetSprite;
+    [SerializeField] private float _fadoutTime;
+    [SerializeField] private Animator _targetAnimator;
     
     private static readonly Dictionary<int, PlayerValues> _players = new Dictionary<int, PlayerValues>();
 
@@ -108,5 +112,18 @@ public class PlayerValues : MonoBehaviour
     public static PlayerValues GetPlayer(int id)
     {
         return _players.ContainsKey(id) ? _players[id] : null;
+    }
+
+    public void SetTargeted(bool b)
+    {
+        _targetSprite.enabled = b;
+        if (b)
+            StartCoroutine(FadeOutTarget());
+    }
+
+    private IEnumerator FadeOutTarget()
+    {
+        yield return new WaitForSeconds(15.0f - _fadoutTime);
+        _targetAnimator.SetTrigger("FadeOut");
     }
 }
